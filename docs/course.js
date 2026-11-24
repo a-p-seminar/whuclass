@@ -24,7 +24,7 @@ const copy = {
   chapterExercises: ["Related exercises", "相关习题"],
   exerciseChapters: ["Exercise chapters", "习题章节"],
   team: ["Course team", "课程团队"],
-  lead: ["Course lead", "课程负责人"],
+  lead: ["Course leader", "课程负责人"],
   member: ["Project members", "项目成员"],
   prerequisites: ["Prerequisites", "先修知识"],
   textbooks: ["Textbooks", "教材"],
