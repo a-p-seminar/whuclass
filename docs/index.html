@@ -10,7 +10,7 @@
   <script src="vendor/katex/katex.min.js" defer></script>
   <script src="vendor/katex/contrib/auto-render.min.js" defer></script>
   <script src="course-content.js" defer></script>
-  <script src="course.js" defer></script>
+  <script src="course.js?v=2" defer></script>
 </head>
 <body data-page="home">
   <a class="skip-link" href="#main" data-copy="skip">Skip to course content</a>
@@ -30,6 +30,7 @@
 
       <nav class="contents" aria-label="Course pages" id="notes">
         <a href="#syllabus" data-copy="schedule">Course materials</a>
+        <a href="#course-videos" data-copy="courseVideos">Course videos</a>
         <a href="syllabus.html" data-course-link="syllabus.html" data-copy="syllabusTitle">Teaching syllabus</a>
         <a href="lesson-plans.html" data-course-link="lesson-plans.html" data-copy="plansTitle">Lesson plans</a>
         <a href="exercises.html" data-course-link="exercises.html" data-copy="exercisesTitle" target="_blank" rel="noopener">Exercises</a>
@@ -38,6 +39,16 @@
       <section class="section" id="team" aria-labelledby="team-title">
         <h2 id="team-title" data-copy="team">Course team</h2>
         <dl class="staff" id="staff"></dl>
+      </section>
+
+      <!-- Set data-video-url to the recording's HTTPS URL or a path relative to this page. -->
+      <section class="section" id="course-videos" aria-labelledby="course-videos-title" data-video-url="">
+        <h2 id="course-videos-title" data-copy="courseVideos">Course videos</h2>
+        <p data-copy="maLecture">Lecture by Jihua Ma (马际华)</p>
+        <p>
+          <span id="course-video-pending" data-copy="videoPending">The recording will be posted here.</span>
+          <a id="course-video-link" data-copy="watchVideo" target="_blank" rel="noopener" hidden>Watch video</a>
+        </p>
       </section>
 
       <section class="section" aria-labelledby="prerequisites-title">

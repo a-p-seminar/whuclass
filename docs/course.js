@@ -26,6 +26,10 @@ const copy = {
   team: ["Course team", "课程团队"],
   lead: ["Course leader", "课程负责人"],
   member: ["Project members", "项目成员"],
+  courseVideos: ["Course videos", "课程视频"],
+  maLecture: ["Lecture by Jihua Ma (马际华)", "马际华老师的课程视频"],
+  videoPending: ["The recording will be posted here.", "录制完成后将在此发布。"],
+  watchVideo: ["Watch video", "观看视频"],
   prerequisites: ["Prerequisites", "先修知识"],
   textbooks: ["Textbooks", "教材"],
   schedule: ["Course materials", "课件"],
@@ -113,6 +117,26 @@ function renderStaff() {
     const names = course.team.filter((person) => person.role === role).map(personName);
     return `<dt>${label(role)}</dt><dd>${names.join(localized([", ", "、"]))}</dd>`;
   }).join("");
+}
+
+function configureCourseVideo() {
+  const source = byId("course-videos")?.dataset.videoUrl?.trim();
+  if (!source) return;
+
+  let url;
+  try {
+    url = new URL(source, location.href);
+  } catch {
+    return;
+  }
+  const localFile = url.protocol === "file:" && location.protocol === "file:" && !url.host;
+  const httpPreview = url.protocol === "http:" && url.origin === location.origin;
+  if (url.protocol !== "https:" && !localFile && !httpPreview) return;
+
+  const link = byId("course-video-link");
+  link.href = url.href;
+  link.hidden = false;
+  byId("course-video-pending").hidden = true;
 }
 
 function fileLink(item, directory = "materials") {
@@ -381,4 +405,5 @@ languageButton.addEventListener("click", () => {
   showLanguage();
 });
 
+if (page === "home") configureCourseVideo();
 showLanguage();
