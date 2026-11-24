@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Advanced Mathematics for international undergraduates at Wuhan University. Lecture slides, textbooks and practice problems.">
+  <title>Advanced Mathematics | Wuhan University</title>
+  <link rel="stylesheet" href="vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="vendor/katex/katex.min.js" defer></script>
+  <script src="vendor/katex/contrib/auto-render.min.js" defer></script>
+  <script src="course-content.js" defer></script>
+  <script src="course.js" defer></script>
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main" data-copy="skip">Skip to course content</a>
+  <div class="page" id="overview">
+    <header class="course-header">
+      <button class="text-button course-language" type="button" id="language" lang="zh-CN">中文</button>
+      <img class="university-mark" src="assets/whu-emblem.png" alt="" width="88" height="88">
+      <div class="course-heading">
+        <h1 data-copy="title">Advanced Mathematics</h1>
+        <p class="alternate-title" id="alternate-title" lang="zh-CN">高等数学</p>
+        <p class="affiliation" data-copy="affiliation">School of Mathematics and Statistics, Wuhan University</p>
+      </div>
+    </header>
+
+    <main id="main">
+      <p class="intro" data-copy="intro">This English-medium foundation course introduces single-variable calculus to international undergraduates. We study functions, limits, derivatives, integrals and series, with examples from economics and management.</p>
+
+      <nav class="contents" aria-label="Course pages" id="notes">
+        <a href="#syllabus" data-copy="schedule">Course materials</a>
+        <a href="syllabus.html" data-course-link="syllabus.html" data-copy="syllabusTitle">Teaching syllabus</a>
+        <a href="lesson-plans.html" data-course-link="lesson-plans.html" data-copy="plansTitle">Lesson plans</a>
+        <a href="exercises.html" data-course-link="exercises.html" data-copy="exercisesTitle" target="_blank" rel="noopener">Exercises</a>
+      </nav>
+
+      <section class="section" id="team" aria-labelledby="team-title">
+        <h2 id="team-title" data-copy="team">Course team</h2>
+        <dl class="staff" id="staff"></dl>
+      </section>
+
+      <section class="section" aria-labelledby="prerequisites-title">
+        <h2 id="prerequisites-title" data-copy="prerequisites">Prerequisites</h2>
+        <p data-copy="preparation">High school algebra, elementary functions and trigonometry.</p>
+      </section>
+
+      <section class="section" id="textbooks" aria-labelledby="textbooks-title">
+        <h2 id="textbooks-title" data-copy="textbooks">Textbooks</h2>
+        <ul class="plain-list" id="textbook-list">
+          <li><span lang="en">Joel Hass, Christopher Heil, Maurice D. Weir. <cite>Thomas’ Calculus</cite>.</span> 14th ed. Main text. <a href="https://www.pearson.com/se/Nordics-Higher-Education/subject-catalogue/mathematics/hass-thomas-calculus-si-units-14e.html" target="_blank" rel="noopener" aria-label="Open textbook information · Thomas’ Calculus">Textbook</a></li>
+          <li><span lang="en">James Stewart. <cite>Calculus</cite>.</span> 7th ed. Reference. <a href="https://www.stewartcalculus.com/media/11_home.php" target="_blank" rel="noopener" aria-label="Open textbook information · Stewart’s Calculus">Textbook</a></li>
+        </ul>
+      </section>
+
+      <section class="section schedule-section" id="syllabus" aria-labelledby="schedule-title">
+        <h2 id="schedule-title" data-copy="schedule">Course materials</h2>
+
+        <div id="resources">
+          <details class="schedule-search">
+            <summary data-copy="search">Search materials</summary>
+            <div class="search-fields">
+              <label><span data-copy="unit">Unit</span><select id="unit-filter"></select></label>
+              <label><span data-copy="searchBy">Topic or filename</span><input id="schedule-search" type="search" autocomplete="off"></label>
+            </div>
+          </details>
+          <p class="search-status" id="search-status" role="status" hidden></p>
+          <table class="schedule" id="schedule" aria-labelledby="schedule-title">
+            <thead>
+              <tr>
+                <th class="topic-cell" scope="col" data-copy="topic">Topic</th>
+                <th class="materials-cell" scope="col" data-copy="materials">Materials</th>
+              </tr>
+            </thead>
+            <tbody id="schedule-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <noscript><p>Enable JavaScript to view the course materials. 请启用 JavaScript 以查看课件表。</p></noscript>
+    </main>
+
+    <footer class="footer">
+      <a href="#overview" data-copy="backToTop">Back to top</a>
+    </footer>
+  </div>
+</body>
+</html>

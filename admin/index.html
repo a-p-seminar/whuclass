@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>课程内容管理 · 高等数学</title>
+  <link rel="stylesheet" href="admin.css">
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="masthead">
+    <div class="page">
+      <div class="masthead-row">
+        <div>
+          <a class="back-link" href="../">返回课程网站</a>
+          <h1>课程内容管理</h1>
+        </div>
+        <div class="actions" id="toolbar" hidden>
+          <button class="button quiet" id="logout" type="button">退出登录</button>
+          <button class="button primary" id="save" type="button" disabled>保存到 GitHub</button>
+        </div>
+      </div>
+      <div class="publication" id="publication" hidden>
+        <p class="destination" id="destination"></p>
+        <div class="status-line">
+          <p id="editor-status" role="status"></p>
+          <a id="commit-link" target="_blank" rel="noopener noreferrer" hidden>查看提交</a>
+        </div>
+        <div class="actions conflict-actions" id="conflict-actions" hidden>
+          <button class="button" id="download-draft" type="button">下载草稿</button>
+          <button class="button" id="reload-content" type="button">加载最新版本</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page" id="main" tabindex="-1">
+    <noscript><p class="notice">请启用 JavaScript 后编辑课程内容。</p></noscript>
+    <div class="notice" id="loading" hidden>
+      <p id="load-status" role="status"></p>
+      <button class="button" id="retry-load" type="button" hidden>重新加载</button>
+    </div>
+
+    <section class="login" id="login" aria-labelledby="login-title" hidden>
+      <h2 id="login-title">管理员登录</h2>
+      <form id="login-form" method="post">
+        <label class="field" for="password">
+          <span class="field-label">管理密码</span>
+          <input id="password" type="password" autocomplete="current-password" aria-describedby="login-status" required>
+        </label>
+        <p class="status-line" id="login-status" role="status"></p>
+        <button class="button primary" id="sign-in" type="submit">登录</button>
+      </form>
+    </section>
+
+    <div class="workspace" id="editor" hidden>
+      <nav class="section-nav" id="section-nav" aria-label="编辑范围"></nav>
+      <fieldset class="editing-fields" id="editing-fields" aria-label="课程内容"></fieldset>
+    </div>
+  </main>
+</body>
+</html>

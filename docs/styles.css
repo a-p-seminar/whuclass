@@ -1,0 +1,157 @@
+:root {
+  color-scheme: light;
+  --ink: #22262b;
+  --muted: #505961;
+  --link: #165a94;
+  --rule: #d7dce1;
+  --stripe: #f5f7f9;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font: 15px/1.56 "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+h1, h2, h3, p, dl, dd, ul, ol { margin: 0; }
+a, .text-button { color: var(--link); text-decoration: underline; text-underline-offset: .17em; }
+a:hover, .text-button:hover { color: #123c62; }
+:where(a, button, input, select, summary):focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+:where(section, .lesson-plan, #notes, #resources) { scroll-margin-top: 16px; }
+[hidden] { display: none !important; }
+
+.page { width: min(54rem, calc(100% - 48px)); margin-inline: auto; }
+
+.skip-link:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.skip-link:focus { position: fixed; z-index: 1; top: 8px; left: 8px; padding: 8px; background: #fff; }
+
+.course-header {
+  --emblem-size: 88px;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-areas: "emblem heading language";
+  grid-template-columns: var(--emblem-size) minmax(0, 1fr) var(--emblem-size);
+  align-items: center;
+  gap: 12px 16px;
+  padding: 20px 0 24px;
+}
+/* Wuhan University Old Library by Howchou, shown with a fade.
+   https://commons.wikimedia.org/wiki/File:Wuhan_University_Old_Library.jpg
+   https://creativecommons.org/licenses/by-sa/3.0/ */
+.course-header::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: url("assets/whu-old-library.jpg") center 12% / cover no-repeat;
+  opacity: .12;
+  mask-image: linear-gradient(#000 18%, transparent);
+  pointer-events: none;
+}
+.course-heading { grid-area: heading; text-align: center; }
+.university-mark { grid-area: emblem; display: block; width: var(--emblem-size); height: auto; }
+.course-language { grid-area: language; justify-self: end; align-self: start; }
+.text-button { padding: 4px 0; border: 0; background: transparent; font: inherit; cursor: pointer; }
+h1 { font-size: clamp(28px, 4.5vw, 36px); line-height: 1.18; font-weight: 550; }
+.alternate-title { margin-top: 5px; color: var(--muted); font-size: 17px; }
+.affiliation { margin-top: 8px; color: var(--muted); }
+
+.intro { max-width: 76ch; }
+.contents { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 12px; }
+.subpage-nav { margin: 0 0 24px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
+.section { margin-top: 28px; }
+.section > h2 { margin-bottom: 7px; font-size: 22px; font-weight: 600; line-height: 1.3; }
+.staff { display: grid; grid-template-columns: max-content 1fr; column-gap: 12px; row-gap: 2px; }
+.staff dt, strong { font-weight: 650; }
+.staff dd span { white-space: nowrap; }
+.staff .other-name { margin-inline-start: 4px; color: var(--muted); }
+.plain-list { padding-inline-start: 18px; }
+.plain-list li + li { margin-top: 2px; }
+
+.schedule-search { margin-block: 9px 12px; }
+.schedule-search > summary { color: var(--link); cursor: pointer; font-size: 14px; width: fit-content; }
+.search-fields { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-block: 8px 12px; }
+.search-fields label { display: grid; gap: 3px; font-size: 13px; }
+.search-fields input, .search-fields select {
+  max-width: 100%;
+  min-height: 34px;
+  padding: 5px 7px;
+  border: 1px solid #a9b2bb;
+  border-radius: 3px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+.search-status { margin: 0 0 8px; color: var(--muted); font-size: 14px; }
+
+.schedule { width: 100%; border-collapse: collapse; table-layout: fixed; line-height: 1.42; }
+.schedule th, .schedule td { padding: 9px 10px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+.schedule thead th { font-size: 14px; font-weight: 650; border-block: 1px solid var(--rule); }
+.materials-cell { width: 98px; white-space: nowrap; }
+.material-row:nth-child(even) { background: var(--stripe); }
+.material-row > th { font-weight: 400; }
+.topic-cell { overflow-wrap: anywhere; }
+.topic-link { color: var(--ink); text-decoration-color: #8998a6; }
+.material-note { color: var(--muted); font-size: 13px; }
+.material-description { margin-top: 3px; color: var(--muted); font-size: 14px; white-space: pre-line; }
+
+.course-information { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; }
+.course-information dt { font-weight: 650; }
+.document-list { padding-inline-start: 22px; }
+.document-list li + li { margin-top: 5px; }
+.document-link { margin-top: 10px; }
+.syllabus-unit { margin-top: 12px; }
+.syllabus-unit h3 { font-size: 16px; font-weight: 650; }
+.muted { color: var(--muted); font-size: 14px; }
+
+.lesson-plan { border-bottom: 1px solid var(--rule); }
+.lesson-plan:first-child { border-top: 1px solid var(--rule); }
+.lesson-plan > summary { padding-block: 10px; color: var(--link); font-size: 16px; font-weight: 650; cursor: pointer; }
+.plan-content { padding: 2px 0 16px 15px; }
+.plan-content h2 { margin: 12px 0 4px; font-size: 16px; font-weight: 650; }
+.plan-content p + p, .plan-content .document-list + p { margin-top: 7px; }
+.plan-resources { display: flex; flex-wrap: wrap; gap: 3px 13px; align-items: baseline; color: var(--muted); font-size: 14px; }
+
+.exercise-unit + .exercise-unit { padding-top: 16px; border-top: 1px solid var(--rule); }
+.exercise-index { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 8px; }
+.exercise-section { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.exercise-list { padding-inline-start: 22px; margin-top: 8px; }
+.exercise-list > li + li { margin-top: 12px; }
+.katex-display { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-block: 2px; }
+.solution summary { width: fit-content; cursor: pointer; color: var(--link); font-size: 14px; }
+.solution p { margin-top: 4px; }
+.footer { margin-top: 32px; padding-block: 12px 26px; border-top: 1px solid var(--rule); font-size: 13px; text-align: end; }
+
+@media (max-width: 600px) {
+  .page { width: calc(100% - 32px); }
+  .course-header {
+    --emblem-size: 68px;
+    grid-template-areas: "emblem . language" "heading heading heading";
+    padding: 12px 0 20px;
+  }
+  .section { margin-top: 22px; }
+  .section > h2 { font-size: 20px; }
+  .staff { column-gap: 8px; }
+  .schedule { font-size: 14px; }
+  .schedule th, .schedule td { padding: 7px 6px; }
+  .materials-cell { width: 75px; }
+}
+
+@media (max-width: 360px) {
+  .staff { grid-template-columns: 1fr; }
+  .staff dd + dt { margin-top: 4px; }
+  .course-information { grid-template-columns: 1fr; gap: 1px; }
+  .course-information dd + dt { margin-top: 5px; }
+  .schedule th, .schedule td { padding-inline: 5px; }
+}
