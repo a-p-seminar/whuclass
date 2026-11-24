@@ -361,8 +361,8 @@ const courseContent = {
     },
     "teaching": [
       [
-        "Before class, read the textbook sections listed in the lesson plan and work through the preparation.",
-        "课前阅读教案中对应的教材章节，并完成预习任务。"
+        "Before class, read the textbook sections and complete the preparation tasks listed in the lesson plan.",
+        "课前阅读教案所列的教材章节，并完成预习任务。"
       ],
       [
         "In class, compare graphs with formulas, work through one example on the board and explain the reasoning in English. Short checks expose common errors before independent practice.",
