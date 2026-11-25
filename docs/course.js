@@ -9,6 +9,7 @@ const copy = {
   syllabusTitle: ["Teaching syllabus", "教学大纲"],
   plansTitle: ["Lesson plans", "教案"],
   exercisesTitle: ["Exercises", "习题"],
+  exerciseDirectory: ["Exercise topics", "习题目录"],
   courseInformation: ["Course information", "课程基本信息"],
   learningOutcomes: ["Learning outcomes", "课程目标"],
   courseContent: ["Course content", "教学内容"],
@@ -21,8 +22,7 @@ const copy = {
   formativeCheck: ["Check for understanding", "随堂检查"],
   expectedResponse: ["Expected response", "参考要点"],
   followUp: ["After class", "课后任务"],
-  chapterExercises: ["Related exercises", "相关习题"],
-  exerciseChapters: ["Exercise chapters", "习题章节"],
+  relatedExercises: ["Related exercises", "相关习题"],
   team: ["Course team", "课程团队"],
   lead: ["Course leader", "课程负责人"],
   member: ["Project members", "项目成员"],
@@ -38,12 +38,6 @@ const copy = {
   open: ["Open", "打开"],
   link: ["Link", "链接"],
   download: ["Download", "下载"],
-  optional: ["Optional", "选读"],
-  search: ["Search materials", "查找课件"],
-  unit: ["Unit", "模块"],
-  all: ["All units", "全部模块"],
-  searchBy: ["Topic or filename", "主题或文件名"],
-  noMatch: ["No materials match the filters.", "当前条件下没有匹配的课件。"],
   solution: ["Show solution", "查看解答"],
   backToTop: ["Back to top", "返回页首"]
 };
@@ -51,17 +45,15 @@ const copy = {
 const byId = (id) => document.getElementById(id);
 const page = document.body.dataset.page;
 const titleKeys = { home: "title", syllabus: "syllabusTitle", plans: "plansTitle", exercises: "exercisesTitle" };
-const units = new Map(course.modules.map((module) => [module.id, module]));
 const materialsInReadingOrder = [...course.materials].sort((a, b) => {
   const [chapterA, sectionA] = firstSection(a.reading);
   const [chapterB, sectionB] = firstSection(b.reading);
   return chapterA - chapterB || sectionA - sectionB;
 });
 const firstExerciseChapter = { foundations: 1, differentiation: 3, integration: 5, series: 10 };
-
-const scheduleRows = byId("schedule-rows");
-const unitFilter = byId("unit-filter");
-const search = byId("schedule-search");
+const exercisesByChapter = new Map(exercises.map((entry) => [entry.chapter, entry]));
+const exerciseTopics = collectExerciseTopics();
+const newTab = 'target="_blank" rel="noopener"';
 const languageButton = byId("language");
 let language = "en";
 
@@ -84,13 +76,36 @@ function formatReading(reference) {
   return `第 ${sections} 节`;
 }
 
-function chapterLabel(chapter) {
-  return localized([`Chapter ${chapter}`, `第 ${chapter} 章`]);
-}
-
 function exerciseChapter(material) {
   const chapter = material.exerciseChapter ?? (material.reading ? firstSection(material.reading)[0] : firstExerciseChapter[material.module]);
-  return exercises.some((unit) => unit.chapter === chapter) ? chapter : null;
+  return exercisesByChapter.has(chapter) ? chapter : null;
+}
+
+function collectExerciseTopics() {
+  const topics = new Map();
+  if (typeof courseExerciseTopics === "undefined") return topics;
+
+  for (const material of materialsInReadingOrder) {
+    const definition = courseExerciseTopics[material.id];
+    const chapter = definition?.supplement ? null : exerciseChapter(material);
+    const chapterItems = exercisesByChapter.get(chapter)?.items ?? [];
+    const items = definition?.supplement ?? (definition?.sections
+      ? chapterItems.filter((item) => definition.sections.includes(item.section))
+      : chapterItems);
+    if (!items.length) continue;
+
+    const path = definition ? `exercises/${material.id}.html` : `exercises.html?topic=${material.id}`;
+    topics.set(material.id, { material, path, chapter, items });
+  }
+  return topics;
+}
+
+function exerciseLink(material, text) {
+  const topic = exerciseTopics.get(material.id);
+  if (!topic) return "";
+
+  const accessibleName = escapeText(`${text} · ${localized(material.title)}`);
+  return courseLink(topic.path, text, `${newTab} aria-label="${accessibleName}"`);
 }
 
 function localized(values) {
@@ -147,17 +162,13 @@ function fileLink(item, directory = "materials") {
   const filePath = remote || `${directory}/${encodeURIComponent(item.file)}`;
   const href = extension === "PDF" && item.page && !filePath.includes("#") ? `${filePath}#page=${item.page}` : filePath;
   const open = Boolean(remote) || extension === "PDF";
-  const behavior = open ? 'target="_blank" rel="noopener"' : "download";
+  const behavior = open ? newTab : "download";
   const linkText = extension ?? label("link");
   const accessibleName = escapeText(`${label(open ? "open" : "download")} ${linkText} · ${localized(item.title)}`);
   return `<a href="${escapeText(href)}" ${behavior} aria-label="${accessibleName}">${escapeText(linkText)}</a>`;
 }
 
 function renderMaterial(item) {
-  let note = "";
-  if (item.type === "supplement") note = label("optional");
-  if (item.page) note = localized([`from p. ${item.page}`, `从第 ${item.page} 页起`]);
-  const noteMarkup = note ? ` <span class="material-note">(${note})</span>` : "";
   const description = item.description ? localized(item.description) : "";
   const descriptionMarkup = description ? `<p class="material-description">${escapeText(description)}</p>` : "";
   const title = localized(item.title);
@@ -165,39 +176,14 @@ function renderMaterial(item) {
     ? courseLink(`lesson-plans.html#plan-${item.id}`, title, 'class="topic-link"')
     : escapeText(title);
   return `<tr class="material-row" id="material-${item.id}">
-    <th scope="row" class="topic-cell">${topic}${noteMarkup}${descriptionMarkup}</th>
+    <th scope="row" class="topic-cell">${topic}${descriptionMarkup}</th>
+    <td class="exercise-cell">${exerciseLink(item, label("exercisesTitle"))}</td>
     <td class="materials-cell">${fileLink(item)}</td>
   </tr>`;
 }
 
 function renderSchedule() {
-  const activeUnit = unitFilter.value || "all";
-  const options = [{ id: "all", title: copy.all }, ...course.modules];
-  unitFilter.innerHTML = options.map((item) => `<option value="${item.id}">${escapeText(localized(item.title))}</option>`).join("");
-  unitFilter.value = activeUnit;
-  scheduleRows.innerHTML = materialsInReadingOrder.map(renderMaterial).join("");
-  updateSearch();
-}
-
-function searchKey(text) {
-  return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f'’]/g, "");
-}
-
-function updateSearch() {
-  const query = searchKey(search.value.trim());
-  let visibleMaterials = 0;
-  for (const item of materialsInReadingOrder) {
-    const terms = [...units.get(item.module).title, ...item.title, ...(item.description ?? []), item.file, item.author, item.reading];
-    const matchesUnit = unitFilter.value === "all" || unitFilter.value === item.module;
-    const matches = matchesUnit && searchKey(terms.join(" ")).includes(query);
-    byId(`material-${item.id}`).hidden = !matches;
-    if (matches) visibleMaterials += 1;
-  }
-  const status = byId("search-status");
-  status.hidden = !query && unitFilter.value === "all";
-  status.textContent = visibleMaterials
-    ? localized([`${visibleMaterials} ${visibleMaterials === 1 ? "material" : "materials"}`, `${visibleMaterials} 份课件`])
-    : label("noMatch");
+  byId("schedule-rows").innerHTML = materialsInReadingOrder.map(renderMaterial).join("");
 }
 
 function courseLink(target, text, attributes = "") {
@@ -267,15 +253,13 @@ function renderLessonPlans() {
   const container = byId("lesson-plans");
   const opened = openDetailsIn(container);
   const expandFirst = !container.hasChildNodes() && !location.hash;
-  const newTab = 'target="_blank" rel="noopener"';
   const plannedMaterials = materialsInReadingOrder.filter((item) => Object.hasOwn(lessonPlans, item.id));
 
   container.innerHTML = plannedMaterials.map((item, index) => {
     const plan = lessonPlans[item.id];
     const id = `plan-${item.id}`;
     const open = opened.has(id) || (expandFirst && index === 0) ? " open" : "";
-    const chapter = exerciseChapter(item);
-    const relatedExercises = chapter ? courseLink(`exercises.html#exercise-chapter-${chapter}`, label("chapterExercises"), newTab) : "";
+    const practice = exerciseLink(item, label("relatedExercises"));
     const steps = plan.steps.map((step) =>
       `<li><strong>${escapeText(localized(step.title))}</strong> ${escapeText(localized(step.detail))}</li>`
     ).join("");
@@ -283,7 +267,7 @@ function renderLessonPlans() {
       <summary>${escapeText(localized(item.title))}</summary>
       <div class="plan-content">
         <p class="plan-resources">${fileLink(item)} ${escapeText(formatReading(item.reading))}
-          ${relatedExercises}
+          ${practice}
         </p>
         <h2>${label("objectives")}</h2>
         <ul class="document-list">${localizedItems(plan.objectives)}</ul>
@@ -300,45 +284,76 @@ function renderLessonPlans() {
   }).join("");
 }
 
+function exerciseList({ material, items }, opened) {
+  const rows = items.map((item, index) => {
+    const id = `solution-${material.id}-${index}`;
+    return `<li>
+      ${escapeText(localized(item.question))}
+      <details class="solution" id="${id}"${opened.has(id) ? " open" : ""}>
+        <summary>${label("solution")}</summary>
+        <p>${escapeText(localized(item.answer))}</p>
+      </details>
+    </li>`;
+  }).join("");
+  return `<ol class="exercise-list">${rows}</ol>`;
+}
+
+function exerciseTopicLinks(topics, prefix, currentId) {
+  return topics.map(({ material, path }) => {
+    const current = material.id === currentId ? 'aria-current="page"' : "";
+    return `<li>${courseLink(prefix + path, localized(material.title), current)}</li>`;
+  }).join("");
+}
+
 function renderExercises() {
   const container = byId("exercise-units");
-  const opened = openDetailsIn(container);
-  const chapterLinks = exercises.map(({ chapter }) =>
-    `<a href="#exercise-chapter-${chapter}">${escapeText(chapterLabel(chapter))}</a>`
-  ).join("");
-  const exerciseMarkup = exercises.map(({ chapter, title, items }) => `<section class="section exercise-unit" id="exercise-chapter-${chapter}">
-    <h2>${escapeText(chapterLabel(chapter))} · ${escapeText(localized(title))}</h2>
-    <ol class="exercise-list">${items.map((item, index) => {
-      const id = `solution-${chapter}-${index}`;
-      return `<li>
-        <span class="exercise-section">${escapeText(formatReading(`§ ${item.section}`))}</span>
-        ${escapeText(localized(item.question))}
-        <details class="solution" id="${id}"${opened.has(id) ? " open" : ""}>
-          <summary>${label("solution")}</summary>
-          <p>${escapeText(localized(item.answer))}</p>
-        </details>
-      </li>`;
-    }).join("")}</ol>
-  </section>`).join("");
-  container.innerHTML = `<nav class="exercise-index" aria-label="${label("exerciseChapters")}">${chapterLinks}</nav>
-    ${exerciseMarkup}`;
+  const pageTopic = document.body.dataset.topic;
+  const topicId = pageTopic ?? new URLSearchParams(location.search).get("topic")
+    ?? /^#exercise-topic-(.+)$/.exec(location.hash)?.[1];
+  const topic = exerciseTopics.get(topicId);
+  const topics = [...exerciseTopics.values()];
+  const prefix = pageTopic ? "../" : "";
+
+  if (!topic) {
+    // Old chapter bookmarks point to the topics they used to contain.
+    const legacyGroup = /^#exercise-(chapter-(\d+)|[a-z]+)$/.exec(location.hash);
+    const chapter = legacyGroup?.[2] ? Number(legacyGroup[2]) : firstExerciseChapter[legacyGroup?.[1]];
+    const matchingTopics = topics.filter((entry) => !chapter || entry.chapter === chapter);
+    container.innerHTML = `<ul class="plain-list">${exerciseTopicLinks(matchingTopics, prefix)}</ul>`;
+    return;
+  }
+
+  const title = localized(topic.material.title);
+  const heading = byId("exercise-title") ?? document.querySelector(".course-heading h1");
+  heading.textContent = title;
+  document.title = `${title} · ${label("exercisesTitle")} | ${label("title")}`;
+  container.innerHTML = exerciseList(topic, openDetailsIn(container));
+
+  const sidebar = byId("exercise-sidebar");
+  if (sidebar) {
+    byId("exercise-topic-links").innerHTML = exerciseTopicLinks(topics, prefix, topicId);
+    sidebar.hidden = false;
+    byId("main").classList.add("has-exercise-sidebar");
+  }
 }
 
 function localizeLinks() {
   for (const link of document.querySelectorAll("[data-course-link]")) {
-    const [path, anchor] = link.dataset.courseLink.split("#");
-    link.setAttribute("href", `${path}?lang=${language}${anchor ? `#${anchor}` : ""}`);
+    const [destination, anchor] = link.dataset.courseLink.split("#");
+    const [path, query] = destination.split("?");
+    const params = new URLSearchParams(query);
+    params.set("lang", language);
+    link.setAttribute("href", `${path}?${params}${anchor ? `#${anchor}` : ""}`);
   }
 }
 
-function showLinkedSection() {
+function showLinkedLessonPlan() {
   const id = location.hash.slice(1);
-  if (!id.startsWith("plan-") && !id.startsWith("exercise-")) return;
-  const chapter = firstExerciseChapter[id.slice("exercise-".length)];
-  const section = byId(id) ?? (chapter && byId(`exercise-chapter-${chapter}`));
-  if (!section) return;
-  if (section.classList.contains("lesson-plan")) section.open = true;
-  section.scrollIntoView();
+  if (!id.startsWith("plan-")) return;
+  const plan = byId(id);
+  if (!plan) return;
+  plan.open = true;
+  plan.scrollIntoView();
 }
 
 function renderFormulas() {
@@ -384,12 +399,10 @@ function showLanguage() {
 
   localizeLinks();
   renderFormulas();
-  showLinkedSection();
+  if (page === "plans") showLinkedLessonPlan();
 }
 
-unitFilter?.addEventListener("change", updateSearch);
-search?.addEventListener("input", updateSearch);
-window.addEventListener("hashchange", showLinkedSection);
+if (page === "plans") window.addEventListener("hashchange", showLinkedLessonPlan);
 languageButton.addEventListener("click", () => {
   language = language === "en" ? "zh-CN" : "en";
   try {
@@ -406,4 +419,6 @@ languageButton.addEventListener("click", () => {
 });
 
 if (page === "home") configureCourseVideo();
+const exerciseMenu = byId("exercise-menu");
+if (exerciseMenu && window.matchMedia("(max-width: 760px)").matches) exerciseMenu.open = false;
 showLanguage();

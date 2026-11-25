@@ -30,7 +30,7 @@ const courseContent = {
           "14th ed. Main text.",
           "第 14 版，主教材。"
         ],
-        "url": "https://www.pearson.com/se/Nordics-Higher-Education/subject-catalogue/mathematics/hass-thomas-calculus-si-units-14e.html"
+        "url": "https://github.com/a-p-seminar/whuclass/releases/download/textbooks/Thomas-Calculus-14e.pdf"
       },
       {
         "id": "stewart",
@@ -43,7 +43,7 @@ const courseContent = {
           "7th ed. Reference.",
           "第 7 版，参考教材。"
         ],
-        "url": "https://www.stewartcalculus.com/media/11_home.php"
+        "url": "https://github.com/a-p-seminar/whuclass/releases/download/textbooks/Stewart-Calculus-7e.pdf"
       }
     ],
     "modules": [
@@ -225,8 +225,8 @@ const courseContent = {
         "id": "power-series",
         "module": "series",
         "title": [
-          "A Primer of Power Series",
-          "幂级数导读"
+          "Power Series",
+          "幂级数"
         ],
         "file": "260510_A-Primer-of-Power-Series.pdf",
         "reading": "§§ 10.7–10.8",
@@ -1303,6 +1303,39 @@ const courseContent = {
           ]
         },
         {
+          "section": "1.1",
+          "question": [
+            "Find the domain of \\(f(x)=\\frac{\\sqrt{9-x}}{x-2}\\).",
+            "求 \\(f(x)=\\frac{\\sqrt{9-x}}{x-2}\\) 的定义域。"
+          ],
+          "answer": [
+            "The square root requires \\(x\\le 9\\), and the denominator requires \\(x\\ne2\\). The domain is \\((-\\infty,2)\\cup(2,9]\\).",
+            "根号要求 \\(x\\le9\\)，分母要求 \\(x\\ne2\\)，所以定义域是 \\((-\\infty,2)\\cup(2,9]\\)。"
+          ]
+        },
+        {
+          "section": "1.1",
+          "question": [
+            "Is \\(f(x)=\\frac{x}{1+x^2}\\) even, odd, or neither? Find its intercepts.",
+            "判断 \\(f(x)=\\frac{x}{1+x^2}\\) 的奇偶性，并求图像与坐标轴的交点。"
+          ],
+          "answer": [
+            "Its domain is \\(\\mathbb R\\), and \\(f(-x)=-f(x)\\), so it is odd. It meets both axes at \\((0,0)\\).",
+            "定义域为 \\(\\mathbb R\\)，且 \\(f(-x)=-f(x)\\)，所以是奇函数。图像只在 \\((0,0)\\) 处与两坐标轴相交。"
+          ]
+        },
+        {
+          "section": "1.1",
+          "question": [
+            "For \\(p(x)=3x^2-7x+2\\), find its degree, its zeros, and the point where its graph meets the \\(y\\)-axis.",
+            "求多项式 \\(p(x)=3x^2-7x+2\\) 的次数、零点，以及图像与 \\(y\\) 轴的交点。"
+          ],
+          "answer": [
+            "The degree is \\(2\\). Factoring gives \\(p(x)=(3x-1)(x-2)\\), so the zeros are \\(\\frac{1}{3}\\) and \\(2\\). Since \\(p(0)=2\\), the \\(y\\)-intercept is \\((0,2)\\).",
+            "这是二次多项式。因式分解得 \\(p(x)=(3x-1)(x-2)\\)，所以零点为 \\(\\frac{1}{3}\\) 和 \\(2\\)。由 \\(p(0)=2\\) 得图像与 \\(y\\) 轴交于 \\((0,2)\\)。"
+          ]
+        },
+        {
           "section": "1.2",
           "question": [
             "Let \\(f(t)=\\sqrt{t+1}\\) and \\(g(x)=4-x^2\\). Find \\(f\\circ g\\) and \\(g\\circ f\\), and give the domain of each composition.",
@@ -1325,6 +1358,28 @@ const courseContent = {
           ]
         },
         {
+          "section": "1.2",
+          "question": [
+            "Let \\(f(x)=2x-3\\) and \\(g(x)=x^2+1\\). Find \\(f\\circ g\\) and \\(g\\circ f\\).",
+            "设 \\(f(x)=2x-3\\)，\\(g(x)=x^2+1\\)，求 \\(f\\circ g\\) 和 \\(g\\circ f\\)。"
+          ],
+          "answer": [
+            "Substituting in the indicated order gives \\((f\\circ g)(x)=2x^2-1\\) and \\((g\\circ f)(x)=4x^2-12x+10\\).",
+            "按复合次序代入，得 \\((f\\circ g)(x)=2x^2-1\\)，\\((g\\circ f)(x)=4x^2-12x+10\\)。"
+          ]
+        },
+        {
+          "section": "1.2",
+          "question": [
+            "Set \\(f(x)=x^2-5\\) and \\(g(x)=\\frac{1}{x-4}\\). Find \\(g\\circ f\\) and specify its domain.",
+            "设 \\(f(x)=x^2-5\\)，\\(g(x)=\\frac{1}{x-4}\\)。求 \\(g\\circ f\\) 及其定义域。"
+          ],
+          "answer": [
+            "Substitution gives \\((g\\circ f)(x)=\\frac{1}{x^2-9}\\). The outer function requires \\(f(x)\\ne4\\), so the domain is \\(\\mathbb R\\setminus\\{-3,3\\}\\).",
+            "代入得 \\((g\\circ f)(x)=\\frac{1}{x^2-9}\\)。外层函数要求 \\(f(x)\\ne4\\)，因此定义域为 \\(\\mathbb R\\setminus\\{-3,3\\}\\)。"
+          ]
+        },
+        {
           "section": "1.3",
           "question": [
             "For \\(T(t)=4+3\\cos(2t-\\frac{\\pi}{3})\\), find the amplitude and period. Find when the maximum and minimum occur on \\(0\\le t<\\pi\\), and give both values.",
@@ -1333,6 +1388,17 @@ const courseContent = {
           "answer": [
             "The amplitude is \\(3\\) and the period is \\(\\frac{2\\pi}{2}=\\pi\\). On the given interval, the cosine is \\(1\\) when \\(2t-\\frac{\\pi}{3}=0\\) and \\(-1\\) when \\(2t-\\frac{\\pi}{3}=\\pi\\). Thus the maximum is \\(7\\) at \\(t=\\frac{\\pi}{6}\\), and the minimum is \\(1\\) at \\(t=\\frac{2\\pi}{3}\\).",
             "振幅为 \\(3\\)，周期为 \\(\\frac{2\\pi}{2}=\\pi\\)。在给定区间内，当 \\(2t-\\frac{\\pi}{3}=0\\) 时，余弦值为 \\(1\\)，当 \\(2t-\\frac{\\pi}{3}=\\pi\\) 时，余弦值为 \\(-1\\)。所以最大值 \\(7\\) 在 \\(t=\\frac{\\pi}{6}\\) 处取得，最小值 \\(1\\) 在 \\(t=\\frac{2\\pi}{3}\\) 处取得。"
+          ]
+        },
+        {
+          "section": "1.3",
+          "question": [
+            "For \\(h(t)=5-2\\sin(\\pi t)\\), find the amplitude, period, range, and the time of the minimum on \\([0,2)\\).",
+            "求 \\(h(t)=5-2\\sin(\\pi t)\\) 的振幅、周期、值域，以及它在 \\([0,2)\\) 上取得最小值的时刻。"
+          ],
+          "answer": [
+            "The amplitude is \\(2\\), the period is \\(2\\), and the range is \\([3,7]\\). The minimum occurs when \\(\\sin(\\pi t)=1\\), at \\(t=\\frac{1}{2}\\) on this interval.",
+            "振幅为 \\(2\\)，周期为 \\(2\\)，值域为 \\([3,7]\\)。当 \\(\\sin(\\pi t)=1\\) 时取最小值，即区间内的 \\(t=\\frac{1}{2}\\)。"
           ]
         }
       ]
@@ -1367,6 +1433,50 @@ const courseContent = {
           ]
         },
         {
+          "section": "2.2",
+          "question": [
+            "Evaluate \\(\\lim\\limits_{x\\to3}\\frac{\\sqrt{x+6}-3}{x-3}\\) by rationalizing the numerator.",
+            "用分子有理化求 \\(\\lim\\limits_{x\\to3}\\frac{\\sqrt{x+6}-3}{x-3}\\)。"
+          ],
+          "answer": [
+            "For \\(x\\ne3\\), the quotient simplifies to \\(\\frac{1}{\\sqrt{x+6}+3}\\). The limit is \\(\\frac{1}{6}\\).",
+            "当 \\(x\\ne3\\) 时，原式化为 \\(\\frac{1}{\\sqrt{x+6}+3}\\)，所以极限为 \\(\\frac{1}{6}\\)。"
+          ]
+        },
+        {
+          "section": "2.2",
+          "question": [
+            "Use the standard trigonometric limit to find \\(\\lim\\limits_{x\\to0}\\frac{\\sin(5x)}{2x}\\).",
+            "利用基本三角极限求 \\(\\lim\\limits_{x\\to0}\\frac{\\sin(5x)}{2x}\\)。"
+          ],
+          "answer": [
+            "Write the quotient as \\(\\frac{5}{2}\\cdot\\frac{\\sin(5x)}{5x}\\). The second factor tends to \\(1\\), so the answer is \\(\\frac{5}{2}\\).",
+            "将原式写成 \\(\\frac{5}{2}\\cdot\\frac{\\sin(5x)}{5x}\\)，后一个因子趋于 \\(1\\)，故极限为 \\(\\frac{5}{2}\\)。"
+          ]
+        },
+        {
+          "section": "2.2",
+          "question": [
+            "Factor the numerator and denominator to evaluate \\(\\lim\\limits_{x\\to2}\\frac{x^3-8}{x^2-4}\\).",
+            "将分子、分母因式分解，求 \\(\\lim\\limits_{x\\to2}\\frac{x^3-8}{x^2-4}\\)。"
+          ],
+          "answer": [
+            "Cancel \\(x-2\\) for \\(x\\ne2\\). The remaining expression is \\(\\frac{x^2+2x+4}{x+2}\\), which tends to \\(3\\).",
+            "当 \\(x\\ne2\\) 时约去公因子 \\(x-2\\)，得到 \\(\\frac{x^2+2x+4}{x+2}\\)，它在 \\(x\\to2\\) 时趋于 \\(3\\)。"
+          ]
+        },
+        {
+          "section": "2.2",
+          "question": [
+            "Let \\(a\\ne0\\) be fixed. Evaluate \\[\\lim\\limits_{h\\to0}\\frac{\\frac{1}{a+2h}-\\frac{1}{a}}{h}.\\]",
+            "设 \\(a\\ne0\\) 为常数，求 \\[\\lim\\limits_{h\\to0}\\frac{\\frac{1}{a+2h}-\\frac{1}{a}}{h}.\\]"
+          ],
+          "answer": [
+            "Combining the two reciprocals gives \\(\\frac{-2h}{a(a+2h)}\\) in the numerator. After cancellation the quotient tends to \\(-\\frac{2}{a^2}\\).",
+            "分子通分得 \\(\\frac{-2h}{a(a+2h)}\\)。约去 \\(h\\) 后取极限，结果为 \\(-\\frac{2}{a^2}\\)。"
+          ]
+        },
+        {
           "section": "2.3",
           "question": [
             "Prove the limit using the \\(\\varepsilon\\)-\\(\\delta\\) definition. Give a choice of \\(\\delta\\) for each \\(\\varepsilon>0\\).\n          \\[\\lim\\limits_{x\\to1}(x^2+2x)=3\\]",
@@ -1378,6 +1488,17 @@ const courseContent = {
           ]
         },
         {
+          "section": "2.3",
+          "question": [
+            "Prove \\(\\lim\\limits_{x\\to2}(4x-1)=7\\) using the \\(\\varepsilon\\)-\\(\\delta\\) definition.",
+            "用 \\(\\varepsilon\\)-\\(\\delta\\) 定义证明 \\(\\lim\\limits_{x\\to2}(4x-1)=7\\)。"
+          ],
+          "answer": [
+            "Given \\(\\varepsilon>0\\), take \\(\\delta=\\frac{\\varepsilon}{4}\\). Then \\(0<|x-2|<\\delta\\) implies \\(|(4x-1)-7|=4|x-2|<\\varepsilon\\).",
+            "给定 \\(\\varepsilon>0\\)，取 \\(\\delta=\\frac{\\varepsilon}{4}\\)。若 \\(0<|x-2|<\\delta\\)，则 \\(|(4x-1)-7|=4|x-2|<\\varepsilon\\)。"
+          ]
+        },
+        {
           "section": "2.4",
           "question": [
             "For \\(x\\ne3\\), let \\(g(x)=\\frac{|x-3|}{x-3}+\\frac{x+1}{2}\\). Find the left and right limits at \\(3\\), and decide whether the two-sided limit exists.",
@@ -1386,6 +1507,17 @@ const courseContent = {
           "answer": [
             "The absolute-value quotient equals \\(-1\\) on the left and \\(1\\) on the right. The term \\(\\frac{x+1}{2}\\) approaches \\(2\\) from either side.\n          \\[\n          \\begin{aligned}\n            \\lim\\limits_{x\\to3^-}g(x)&=1,\\\\\n            \\lim\\limits_{x\\to3^+}g(x)&=3.\n          \\end{aligned}\n          \\]\n          Since the limits differ, the two-sided limit fails to exist.",
             "含绝对值的分式在 \\(3\\) 的左侧等于 \\(-1\\)，在右侧等于 \\(1\\)。两侧的 \\(\\frac{x+1}{2}\\) 都趋于 \\(2\\)。\n          \\[\n          \\begin{aligned}\n            \\lim\\limits_{x\\to3^-}g(x)&=1,\\\\\n            \\lim\\limits_{x\\to3^+}g(x)&=3.\n          \\end{aligned}\n          \\]\n          左右极限不相等，故双侧极限不存在。"
+          ]
+        },
+        {
+          "section": "2.4",
+          "question": [
+            "Find both one-sided limits of \\(\\lfloor x\\rfloor\\) at \\(x=2\\). Does the two-sided limit exist? Here \\(\\lfloor x\\rfloor\\) is the greatest integer at most \\(x\\).",
+            "设 \\(\\lfloor x\\rfloor\\) 为不超过 \\(x\\) 的最大整数。求它在 \\(x=2\\) 处的左、右极限，并判断双侧极限是否存在。"
+          ],
+          "answer": [
+            "Immediately to the left of \\(2\\) the value is \\(1\\). Immediately to the right it is \\(2\\). The one-sided limits differ, so the two-sided limit does not exist.",
+            "在 \\(2\\) 的左侧附近函数值为 \\(1\\)，在右侧附近为 \\(2\\)。左右极限不相等，双侧极限不存在。"
           ]
         },
         {
@@ -1409,6 +1541,72 @@ const courseContent = {
             "The polynomial \\(p(x)=x^3+2x-6\\) is continuous on \\([1,2]\\). Since \\(p(1)=-3\\) and \\(p(2)=6\\), the theorem gives a root in \\((1,2)\\). Also \\(p(\\frac{3}{2})=\\frac{3}{8}>0\\), so the sign change between \\(1\\) and \\(\\frac{3}{2}\\) gives a root in \\((1,\\frac{3}{2})\\).",
             "多项式 \\(p(x)=x^3+2x-6\\) 在 \\([1,2]\\) 上连续，且 \\(p(1)=-3\\)、\\(p(2)=6\\)。由介值定理，\\((1,2)\\) 内有根。又因为 \\(p(\\frac{3}{2})=\\frac{3}{8}>0\\)，在 \\(1\\) 与 \\(\\frac{3}{2}\\) 处函数值异号，所以 \\((1,\\frac{3}{2})\\) 内有根。"
           ]
+        },
+        {
+          "section": "2.5",
+          "question": [
+            "Find \\(a\\) and \\(b\\) so that \\(f\\) is continuous on \\(\\mathbb R\\). \\[f(x)=\\begin{cases}x+1,&x<1,\\\\ax+b,&1\\le x\\le3,\\\\x^2-2,&x>3.\\end{cases}\\]",
+            "求 \\(a,b\\)，使 \\(f\\) 在 \\(\\mathbb R\\) 上连续。 \\[f(x)=\\begin{cases}x+1,&x<1,\\\\ax+b,&1\\le x\\le3,\\\\x^2-2,&x>3.\\end{cases}\\]"
+          ],
+          "answer": [
+            "Matching values at \\(1\\) and \\(3\\) gives \\(a+b=2\\) and \\(3a+b=7\\). Solving gives \\(a=\\frac{5}{2}\\) and \\(b=-\\frac{1}{2}\\).",
+            "在 \\(1\\) 和 \\(3\\) 处令两侧值相等，得到 \\(a+b=2\\)、\\(3a+b=7\\)。解得 \\(a=\\frac{5}{2}\\)，\\(b=-\\frac{1}{2}\\)。"
+          ]
+        },
+        {
+          "section": "2.5",
+          "question": [
+            "What value should be assigned to \\(f(4)\\) to make \\(f(x)=\\frac{x^2-16}{x-4}\\), for \\(x\\ne4\\), continuous at \\(4\\)?",
+            "已知 \\(x\\ne4\\) 时 \\(f(x)=\\frac{x^2-16}{x-4}\\)。怎样定义 \\(f(4)\\) 才能使函数在 \\(4\\) 处连续？"
+          ],
+          "answer": [
+            "Away from \\(4\\), \\(f(x)=x+4\\), which tends to \\(8\\). Set \\(f(4)=8\\).",
+            "当 \\(x\\ne4\\) 时 \\(f(x)=x+4\\)，其在 \\(4\\) 处的极限为 \\(8\\)，因此取 \\(f(4)=8\\)。"
+          ]
+        },
+        {
+          "section": "2.5",
+          "question": [
+            "Use the Intermediate Value Theorem to show that \\(\\cos x=x\\) has a solution in \\((0,\\frac{\\pi}{2})\\).",
+            "用介值定理证明 \\(\\cos x=x\\) 在 \\((0,\\frac{\\pi}{2})\\) 内有解。"
+          ],
+          "answer": [
+            "The continuous function \\(g(x)=\\cos x-x\\) satisfies \\(g(0)=1>0\\) and \\(g(\\frac{\\pi}{2})=-\\frac{\\pi}{2}<0\\). It therefore has a zero in the interval.",
+            "\\(g(x)=\\cos x-x\\) 连续，且 \\(g(0)=1>0\\)、\\(g(\\frac{\\pi}{2})=-\\frac{\\pi}{2}<0\\)。由介值定理，区间内存在零点。"
+          ]
+        },
+        {
+          "section": "2.5",
+          "question": [
+            "Give the maximal intervals on which \\(\\tan x\\) is continuous.",
+            "求 \\(\\tan x\\) 连续的所有最大区间。"
+          ],
+          "answer": [
+            "The denominator \\(\\cos x\\) vanishes at \\(\\frac{\\pi}{2}+k\\pi\\). The maximal intervals are \\((-\\frac{\\pi}{2}+k\\pi,\\frac{\\pi}{2}+k\\pi)\\) for \\(k\\in\\mathbb Z\\).",
+            "分母 \\(\\cos x\\) 在 \\(\\frac{\\pi}{2}+k\\pi\\) 处为零。最大连续区间为 \\((-\\frac{\\pi}{2}+k\\pi,\\frac{\\pi}{2}+k\\pi)\\)，其中 \\(k\\in\\mathbb Z\\)。"
+          ]
+        },
+        {
+          "section": "2.5",
+          "question": [
+            "For \\(x\\ne-2,2\\), define \\(f(x)=\\frac{x^4-16}{x^2-4}\\). Assign values at both excluded points so the extended function is continuous on \\(\\mathbb R\\).",
+            "当 \\(x\\ne-2,2\\) 时，设 \\(f(x)=\\frac{x^4-16}{x^2-4}\\)。分别补定义 \\(f(-2)\\)、\\(f(2)\\)，使函数在 \\(\\mathbb R\\) 上连续。"
+          ],
+          "answer": [
+            "The numerator factors as \\((x^2-4)(x^2+4)\\). The simplified expression has value \\(8\\) at both excluded points. Set \\(f(-2)=f(2)=8\\).",
+            "分子可分解为 \\((x^2-4)(x^2+4)\\)。约分后的表达式在这两点都取值 \\(8\\)，故定义 \\(f(-2)=f(2)=8\\)。"
+          ]
+        },
+        {
+          "section": "2.5",
+          "question": [
+            "Classify the discontinuities of \\(g(x)=\\frac{x-3}{(x-3)(x+2)}\\) at \\(x=3\\) and \\(x=-2\\). Can either be removed by defining a value there?",
+            "判断 \\(g(x)=\\frac{x-3}{(x-3)(x+2)}\\) 在 \\(x=3\\) 和 \\(x=-2\\) 处的间断类型。哪一处可通过补定义消去间断？"
+          ],
+          "answer": [
+            "Away from the excluded points, \\(g(x)=\\frac{1}{x+2}\\). At \\(3\\) the limit is \\(\\frac{1}{5}\\), so the discontinuity is removable. At \\(-2\\) the one-sided limits are unbounded, so assigning a finite value cannot make it continuous.",
+            "在这两点以外，\\(g(x)=\\frac{1}{x+2}\\)。它在 \\(3\\) 处的极限为 \\(\\frac{1}{5}\\)，是可去间断点。在 \\(-2\\) 处，单侧极限无界，补定义有限值也不能使它连续。"
+          ]
         }
       ]
     },
@@ -1431,6 +1629,39 @@ const courseContent = {
           ]
         },
         {
+          "section": "3.1",
+          "question": [
+            "Use the difference quotient to find the slope and equation of the tangent line to \\(f(x)=3x^2-x\\) at \\(x=-1\\).",
+            "用差商的极限求 \\(f(x)=3x^2-x\\) 在 \\(x=-1\\) 处的切线斜率，并写出切线方程。"
+          ],
+          "answer": [
+            "\\(f(-1)=4\\) and \\(\\frac{f(-1+h)-f(-1)}{h}=-7+3h\\). The slope is \\(-7\\), so the tangent line is \\(y=4-7(x+1)\\).",
+            "\\(f(-1)=4\\)，且 \\(\\frac{f(-1+h)-f(-1)}{h}=-7+3h\\)。斜率为 \\(-7\\)，切线为 \\(y=4-7(x+1)\\)。"
+          ]
+        },
+        {
+          "section": "3.1",
+          "question": [
+            "A sphere has volume \\(V(r)=\\frac{4\\pi}{3}r^3\\). Use a difference quotient to find the rate of change of volume with radius at \\(r=2\\).",
+            "球的体积为 \\(V(r)=\\frac{4\\pi}{3}r^3\\)。用差商的极限求半径 \\(r=2\\) 时，体积关于半径的变化率。"
+          ],
+          "answer": [
+            "Expand \\((2+h)^3-8\\) to obtain \\(h(12+6h+h^2)\\). The difference quotient tends to \\(\\frac{4\\pi}{3}\\cdot12=16\\pi\\).",
+            "将 \\((2+h)^3-8\\) 展开得 \\(h(12+6h+h^2)\\)。代入差商并取极限，得 \\(\\frac{4\\pi}{3}\\cdot12=16\\pi\\)。"
+          ]
+        },
+        {
+          "section": "3.2",
+          "question": [
+            "Find the derivative of \\(f(x)=|x-2|\\) on each side of \\(2\\). Is \\(f\\) differentiable at \\(2\\)?",
+            "求 \\(f(x)=|x-2|\\) 在 \\(2\\) 的两侧的导数，并判断 \\(f\\) 在 \\(2\\) 处是否可导。"
+          ],
+          "answer": [
+            "The derivative is \\(-1\\) for \\(x<2\\) and \\(1\\) for \\(x>2\\). The corresponding one-sided difference quotients at \\(2\\) have different limits.",
+            "当 \\(x<2\\) 时导数为 \\(-1\\)，当 \\(x>2\\) 时为 \\(1\\)。在 \\(2\\) 处这也是左、右差商的极限，两者不同，故不可导。"
+          ]
+        },
+        {
           "section": "3.3",
           "question": [
             "Differentiate \\(g(x)=\\frac{x^2+1}{2x-1}\\) using the quotient rule. Then find \\(g'(1)\\).",
@@ -1442,6 +1673,17 @@ const courseContent = {
           ]
         },
         {
+          "section": "3.4",
+          "question": [
+            "A production cost in yuan is \\(C(q)=\\frac{q^2}{20}+8q+120\\). Find the marginal cost at \\(q=40\\) and interpret it.",
+            "某产品的总成本为 \\(C(q)=\\frac{q^2}{20}+8q+120\\) 元。求产量 \\(q=40\\) 时的边际成本，并解释其含义。"
+          ],
+          "answer": [
+            "\\(C'(q)=\\frac{q}{10}+8\\), so \\(C'(40)=12\\) yuan per unit. Near \\(40\\) units, increasing output by one unit increases cost by about \\(12\\) yuan.",
+            "\\(C'(q)=\\frac{q}{10}+8\\)，故 \\(C'(40)=12\\) 元每件。在产量为 \\(40\\) 件附近，多生产一件的成本约为 \\(12\\) 元。"
+          ]
+        },
+        {
           "section": "3.6",
           "question": [
             "For \\(F(x)=(2+\\sin(3x))^4\\), use the chain rule to find \\(F'(x)\\) and \\(F'(0)\\).",
@@ -1450,6 +1692,39 @@ const courseContent = {
           "answer": [
             "The derivative of the inner function \\(2+\\sin(3x)\\) is \\(3\\cos(3x)\\). Multiply it by \\(4(2+\\sin(3x))^3\\) to obtain \\(F'(x)=12(2+\\sin(3x))^3\\cos(3x)\\). At \\(x=0\\), \\(F'(0)=12\\cdot 2^3=96\\).",
             "内层函数 \\(2+\\sin(3x)\\) 的导数为 \\(3\\cos(3x)\\)。将它乘以 \\(4(2+\\sin(3x))^3\\)，得 \\(F'(x)=12(2+\\sin(3x))^3\\cos(3x)\\)。代入 \\(x=0\\)，得 \\(F'(0)=12\\cdot 2^3=96\\)。"
+          ]
+        },
+        {
+          "section": "3.6",
+          "question": [
+            "Differentiate \\(y=(1+(2x-1)^2)^{\\frac{5}{2}}\\) using the chain rule.",
+            "用链式法则求 \\(y=(1+(2x-1)^2)^{\\frac{5}{2}}\\) 的导数。"
+          ],
+          "answer": [
+            "The inner derivative is \\(4(2x-1)\\). Multiplying by the derivative of the outer power gives \\(y'=10(2x-1)(1+(2x-1)^2)^{\\frac{3}{2}}\\).",
+            "内层导数为 \\(4(2x-1)\\)，乘以外层幂函数的导数，得 \\(y'=10(2x-1)(1+(2x-1)^2)^{\\frac{3}{2}}\\)。"
+          ]
+        },
+        {
+          "section": "3.6",
+          "question": [
+            "Find the tangent line to \\(f(x)=\\sqrt{5x^2+4}\\) at \\(x=1\\).",
+            "求 \\(f(x)=\\sqrt{5x^2+4}\\) 在 \\(x=1\\) 处的切线方程。"
+          ],
+          "answer": [
+            "The chain rule gives \\(f'(x)=\\frac{5x}{\\sqrt{5x^2+4}}\\). At \\(x=1\\), the function value is \\(3\\) and the slope is \\(\\frac{5}{3}\\). The line is \\(y=3+\\frac{5}{3}(x-1)\\).",
+            "由链式法则，\\(f'(x)=\\frac{5x}{\\sqrt{5x^2+4}}\\)。在 \\(x=1\\) 处函数值为 \\(3\\)，斜率为 \\(\\frac{5}{3}\\)，切线为 \\(y=3+\\frac{5}{3}(x-1)\\)。"
+          ]
+        },
+        {
+          "section": "3.6",
+          "question": [
+            "Suppose \\(f\\) is differentiable on \\(\\mathbb R\\). Use the chain rule to determine the parity of \\(f'\\) when \\(f\\) is even and when \\(f\\) is odd.",
+            "设 \\(f\\) 在 \\(\\mathbb R\\) 上可导。用链式法则分别判断 \\(f\\) 为偶函数和奇函数时，\\(f'\\) 的奇偶性。"
+          ],
+          "answer": [
+            "For even \\(f\\), differentiate \\(f(-x)=f(x)\\) to get \\(-f'(-x)=f'(x)\\), so \\(f'\\) is odd. For odd \\(f\\), differentiating \\(f(-x)=-f(x)\\) gives \\(f'(-x)=f'(x)\\), so \\(f'\\) is even.",
+            "若 \\(f\\) 为偶函数，对 \\(f(-x)=f(x)\\) 两边求导得 \\(-f'(-x)=f'(x)\\)，所以 \\(f'\\) 为奇函数。若 \\(f\\) 为奇函数，对 \\(f(-x)=-f(x)\\) 两边求导得 \\(f'(-x)=f'(x)\\)，所以 \\(f'\\) 为偶函数。"
           ]
         },
         {
@@ -1484,6 +1759,39 @@ const courseContent = {
           ]
         },
         {
+          "section": "4.1",
+          "question": [
+            "Find the absolute maximum and minimum of \\(f(x)=x^4-4x^2\\) on \\([-1,2]\\). Give every point where each is attained.",
+            "求 \\(f(x)=x^4-4x^2\\) 在 \\([-1,2]\\) 上的最大值和最小值，并指出各自的取值点。"
+          ],
+          "answer": [
+            "The interior critical points are \\(0\\) and \\(\\sqrt2\\). The values at \\(-1,0,\\sqrt2,2\\) are \\(-3,0,-4,0\\). The maximum is \\(0\\) at \\(0,2\\), and the minimum is \\(-4\\) at \\(\\sqrt2\\).",
+            "区间内的临界点为 \\(0,\\sqrt2\\)。在 \\(-1,0,\\sqrt2,2\\) 处的函数值依次为 \\(-3,0,-4,0\\)。最大值 \\(0\\) 在 \\(0,2\\) 处取得，最小值 \\(-4\\) 在 \\(\\sqrt2\\) 处取得。"
+          ]
+        },
+        {
+          "section": "4.1",
+          "question": [
+            "Find the absolute extrema of \\(f(x)=|x-2|+\\frac{x}{2}\\) on \\([0,5]\\).",
+            "求 \\(f(x)=|x-2|+\\frac{x}{2}\\) 在 \\([0,5]\\) 上的最大值与最小值。"
+          ],
+          "answer": [
+            "The function decreases up to \\(2\\) and increases after \\(2\\). Compare \\(f(0)=2,\\ f(2)=1,\\ f(5)=\\frac{11}{2}\\). The minimum is \\(1\\) at \\(2\\), and the maximum is \\(\\frac{11}{2}\\) at \\(5\\).",
+            "函数在 \\(2\\) 左侧递减、右侧递增。比较 \\(f(0)=2,\\ f(2)=1,\\ f(5)=\\frac{11}{2}\\)，得最小值为 \\(1\\)，在 \\(2\\) 处取得。最大值为 \\(\\frac{11}{2}\\)，在 \\(5\\) 处取得。"
+          ]
+        },
+        {
+          "section": "4.1",
+          "question": [
+            "Locate all absolute extrema of \\(f(x)=|x+2|+|x-1|\\) on \\([-4,3]\\).",
+            "求 \\(f(x)=|x+2|+|x-1|\\) 在 \\([-4,3]\\) 上的最大值、最小值及全部取值点。"
+          ],
+          "answer": [
+            "The two absolute values measure distances to \\(-2\\) and \\(1\\). Their sum is \\(3\\) on \\([-2,1]\\) and increases away from that interval. Both endpoints \\(-4\\) and \\(3\\) give the maximum \\(7\\).",
+            "两个绝对值分别表示到 \\(-2\\) 和 \\(1\\) 的距离。在 \\([-2,1]\\) 上，距离之和恒为 \\(3\\)，离开该区间后随距离增大而增大。端点 \\(-4\\) 和 \\(3\\) 处都取得最大值 \\(7\\)。"
+          ]
+        },
+        {
           "section": "4.2",
           "question": [
             "Use the Mean Value Theorem for \\(f(x)=\\sqrt{x}\\) on \\([36,39]\\) to show that\n          \\[\\frac{3}{2\\sqrt{39}}<\\sqrt{39}-6<\\frac{1}{4}.\\]",
@@ -1492,6 +1800,72 @@ const courseContent = {
           "answer": [
             "The square root is continuous on \\([36,39]\\) and differentiable on \\((36,39)\\). Thus some \\(c\\in(36,39)\\) satisfies \\(\\sqrt{39}-6=3f'(c)=\\frac{3}{2\\sqrt c}\\). Since \\(6<\\sqrt c<\\sqrt{39}\\), taking reciprocals and multiplying by \\(\\frac{3}{2}\\) gives the requested bounds.",
             "平方根函数在 \\([36,39]\\) 上连续，在 \\((36,39)\\) 内可导。由中值定理，存在 \\(c\\in(36,39)\\) 使 \\(\\sqrt{39}-6=3f'(c)=\\frac{3}{2\\sqrt c}\\)。因为 \\(6<\\sqrt c<\\sqrt{39}\\)，取倒数再乘以 \\(\\frac{3}{2}\\)，即得所求不等式。"
+          ]
+        },
+        {
+          "section": "4.2",
+          "question": [
+            "For \\(f(x)=x^2+1\\) on \\([-1,3]\\), find every \\(c\\) that satisfies the conclusion of the Mean Value Theorem.",
+            "对 \\([-1,3]\\) 上的 \\(f(x)=x^2+1\\)，求所有满足中值定理结论的 \\(c\\)。"
+          ],
+          "answer": [
+            "The secant slope is \\(\\frac{10-2}{3-(-1)}=2\\). Solving \\(f'(c)=2c=2\\) gives \\(c=1\\).",
+            "割线斜率为 \\(\\frac{10-2}{3-(-1)}=2\\)。解 \\(f'(c)=2c=2\\)，得 \\(c=1\\)。"
+          ]
+        },
+        {
+          "section": "4.2",
+          "question": [
+            "The endpoints of \\(f(x)=|x-1|\\) on \\([0,2]\\) have equal values. Which hypothesis of Rolle's theorem fails?",
+            "\\(f(x)=|x-1|\\) 在 \\([0,2]\\) 的两个端点取值相等。它不满足罗尔定理的哪条条件？"
+          ],
+          "answer": [
+            "At \\(x=1\\) the one-sided derivatives are \\(-1\\) and \\(1\\). The function fails to be differentiable throughout \\((0,2)\\).",
+            "在 \\(x=1\\) 处的左、右导数分别为 \\(-1\\) 和 \\(1\\)，所以不满足在 \\((0,2)\\) 上处处可导的条件。"
+          ]
+        },
+        {
+          "section": "4.2",
+          "question": [
+            "Find all points \\(c\\) given by the Mean Value Theorem for \\(f(x)=x^3-7x\\) on \\([-3,3]\\).",
+            "对 \\([-3,3]\\) 上的 \\(f(x)=x^3-7x\\)，求所有满足中值定理结论的 \\(c\\)。"
+          ],
+          "answer": [
+            "The endpoint values are \\(-6\\) and \\(6\\), so the secant slope is \\(2\\). The equation \\(3c^2-7=2\\) gives \\(c=\\pm\\sqrt3\\), both in the open interval.",
+            "两端函数值为 \\(-6\\) 和 \\(6\\)，割线斜率为 \\(2\\)。由 \\(3c^2-7=2\\) 得 \\(c=\\pm\\sqrt3\\)，两点均在开区间内。"
+          ]
+        },
+        {
+          "section": "4.2",
+          "question": [
+            "Suppose \\(f\\) is continuous on \\([3,7]\\), differentiable on \\((3,7)\\), \\(f(3)=1\\), and \\(2\\le f'(x)\\le5\\) on \\((3,7)\\). Find bounds for \\(f(7)\\).",
+            "设 \\(f\\) 在 \\([3,7]\\) 上连续，在 \\((3,7)\\) 上可导，且 \\(f(3)=1\\)、\\(2\\le f'(x)\\le5\\)。求 \\(f(7)\\) 的上下界。"
+          ],
+          "answer": [
+            "By the Mean Value Theorem, \\(f(7)-1=4f'(c)\\) for some \\(c\\in(3,7)\\). Thus \\(9\\le f(7)\\le21\\).",
+            "由中值定理，存在 \\(c\\in(3,7)\\) 使 \\(f(7)-1=4f'(c)\\)，故 \\(9\\le f(7)\\le21\\)。"
+          ]
+        },
+        {
+          "section": "4.2",
+          "question": [
+            "On \\([0,2]\\), set \\(f(x)=x\\) for \\(x<2\\) and \\(f(2)=5\\). Test the hypotheses of the Mean Value Theorem and decide whether its conclusion holds.",
+            "在 \\([0,2]\\) 上，设 \\(x<2\\) 时 \\(f(x)=x\\)，而 \\(f(2)=5\\)。检查微分中值定理的条件，并判断其结论是否成立。"
+          ],
+          "answer": [
+            "The function is differentiable in \\((0,2)\\) but fails to be continuous at \\(2\\). Its secant slope is \\(\\frac{5}{2}\\), while every interior derivative is \\(1\\). No interior point satisfies the conclusion.",
+            "函数在 \\((0,2)\\) 内可导，但在端点 \\(2\\) 处不连续。割线斜率为 \\(\\frac{5}{2}\\)，区间内部的导数恒为 \\(1\\)，因此没有点满足中值定理的结论。"
+          ]
+        },
+        {
+          "section": "4.2",
+          "question": [
+            "Apply the Mean Value Theorem to \\(f(x)=\\frac{2}{x-1}\\) on \\([2,5]\\) and find the point \\(c\\). Which hypotheses would fail on \\([0,2]\\)?",
+            "对 \\([2,5]\\) 上的 \\(f(x)=\\frac{2}{x-1}\\) 使用微分中值定理，求 \\(c\\)。改用区间 \\([0,2]\\) 时，哪些条件不成立？"
+          ],
+          "answer": [
+            "On \\([2,5]\\) the secant slope is \\(-\\frac{1}{2}\\). Solve \\(-\\frac{2}{(c-1)^2}=-\\frac{1}{2}\\) and keep the root \\(c=3\\). On \\([0,2]\\) the function is undefined at \\(1\\), so it fails both continuity on the closed interval and differentiability throughout the open interval.",
+            "在 \\([2,5]\\) 上割线斜率为 \\(-\\frac{1}{2}\\)。解 \\(-\\frac{2}{(c-1)^2}=-\\frac{1}{2}\\)，得到区间内的解 \\(c=3\\)。在 \\([0,2]\\) 上函数在 \\(1\\) 处无定义，因此既不满足闭区间连续，也不满足开区间处处可导。"
           ]
         },
         {
@@ -1506,6 +1880,72 @@ const courseContent = {
           ]
         },
         {
+          "section": "4.3",
+          "question": [
+            "Find the intervals of increase and decrease of \\(f(x)=x^3-3x^2\\), and classify its critical points.",
+            "求 \\(f(x)=x^3-3x^2\\) 的单调区间，并判断各临界点的类型。"
+          ],
+          "answer": [
+            "\\(f'(x)=3x(x-2)\\). The function increases on \\((-\\infty,0)\\) and \\((2,\\infty)\\), and decreases on \\((0,2)\\). It has a local maximum at \\(0\\) and a local minimum at \\(2\\).",
+            "\\(f'(x)=3x(x-2)\\)。函数在 \\((-\\infty,0)\\) 和 \\((2,\\infty)\\) 上递增，在 \\((0,2)\\) 上递减。在 \\(0\\) 处取局部最大值，在 \\(2\\) 处取局部最小值。"
+          ]
+        },
+        {
+          "section": "4.3",
+          "question": [
+            "Use the first derivative test to decide whether \\(f(x)=(x-1)^3\\) has a local extremum at \\(x=1\\).",
+            "用一阶导数判别法判断 \\(f(x)=(x-1)^3\\) 在 \\(x=1\\) 处是否有局部极值。"
+          ],
+          "answer": [
+            "\\(f'(x)=3(x-1)^2\\) is positive on both sides of \\(1\\). The function increases through \\(1\\) and has no local extremum there.",
+            "\\(f'(x)=3(x-1)^2\\) 在 \\(1\\) 的两侧均为正。函数经过 \\(1\\) 时仍递增，因此在该点没有局部极值。"
+          ]
+        },
+        {
+          "section": "4.3",
+          "question": [
+            "For \\(f(x)=x+\\frac{4}{x}\\) on \\(x>0\\), find the intervals of monotonicity and the minimum value, if one exists.",
+            "对 \\(x>0\\) 上的 \\(f(x)=x+\\frac{4}{x}\\)，求单调区间，并判断是否有最小值。"
+          ],
+          "answer": [
+            "\\(f'(x)=1-\\frac{4}{x^2}\\) is negative on \\((0,2)\\) and positive on \\((2,\\infty)\\). The global minimum is \\(f(2)=4\\).",
+            "\\(f'(x)=1-\\frac{4}{x^2}\\) 在 \\((0,2)\\) 上为负，在 \\((2,\\infty)\\) 上为正，所以最小值为 \\(f(2)=4\\)。"
+          ]
+        },
+        {
+          "section": "4.3",
+          "question": [
+            "Suppose \\(f'(x)=(x+2)(x-1)^2(x-3)\\). Classify the critical points \\(-2,1,3\\) using the sign of \\(f'\\).",
+            "已知 \\(f'(x)=(x+2)(x-1)^2(x-3)\\)。用导数符号判断临界点 \\(-2,1,3\\) 的类型。"
+          ],
+          "answer": [
+            "The sign changes from positive to negative at \\(-2\\), and from negative to positive at \\(3\\). These are a local maximum and a local minimum, respectively. At \\(1\\) the derivative stays negative on both sides.",
+            "\\(f'\\) 在 \\(-2\\) 处由正变负，故为局部极大点。在 \\(3\\) 处由负变正，故为局部极小点。\\(1\\) 两侧的导数都为负，此处没有局部极值。"
+          ]
+        },
+        {
+          "section": "4.3",
+          "question": [
+            "A differentiable function satisfies \\(f'(x)<0\\) for \\(x<-2\\), \\(f'(x)>0\\) for \\(-2<x<1\\) and \\(x>1\\), and \\(f'(-2)=f'(1)=0\\). Give the intervals of monotonicity and classify the two stationary points.",
+            "一个可导函数在 \\(x<-2\\) 时满足 \\(f'(x)<0\\)，在 \\(-2<x<1\\) 和 \\(x>1\\) 时满足 \\(f'(x)>0\\)，且 \\(f'(-2)=f'(1)=0\\)。求单调区间，并判断两个驻点是否为极值点。"
+          ],
+          "answer": [
+            "The function is decreasing on \\((-\\infty,-2)\\) and increasing on \\((-2,\\infty)\\). The derivative changes from negative to positive at \\(-2\\), giving a local minimum. The derivative stays positive on either side of \\(1\\), so \\(1\\) is stationary without a local extremum.",
+            "函数在 \\((-\\infty,-2)\\) 上递减，在 \\((-2,\\infty)\\) 上递增。导数在 \\(-2\\) 处从负变正，故该点为局部极小点。导数在 \\(1\\) 的两侧均为正，所以 \\(1\\) 为驻点但不是极值点。"
+          ]
+        },
+        {
+          "section": "4.3",
+          "question": [
+            "Suppose \\(g\\) is differentiable and \\(g'(x)=(x-2)(x+1)\\). From this derivative alone, determine where \\(g\\) increases, where it decreases, and which stationary point is a local maximum.",
+            "设 \\(g\\) 可导，且 \\(g'(x)=(x-2)(x+1)\\)。仅根据导数判断 \\(g\\) 的递增、递减区间，并指出哪个驻点为局部极大点。"
+          ],
+          "answer": [
+            "The derivative is positive outside \\([-1,2]\\) and negative between the roots. Thus \\(g\\) increases on \\((-\\infty,-1)\\) and \\((2,\\infty)\\), decreases on \\((-1,2)\\), and attains a local maximum at \\(-1\\).",
+            "导数在两根之外为正、两根之间为负。故 \\(g\\) 在 \\((-\\infty,-1)\\) 和 \\((2,\\infty)\\) 上递增，在 \\((-1,2)\\) 上递减，并在 \\(-1\\) 处取得局部极大值。"
+          ]
+        },
+        {
           "section": "4.5",
           "question": [
             "The profit from selling \\(q\\) kilograms of a product is \\(P(q)=12q-q^2\\), measured in hundreds of yuan, for \\(0\\le q\\le10\\). Find the sales quantity that maximizes profit and the corresponding profit in yuan.",
@@ -1514,6 +1954,39 @@ const courseContent = {
           "answer": [
             "Solve \\(P'(q)=12-2q=0\\) to get \\(q=6\\). Comparing \\(P(0)=0\\), \\(P(6)=36\\) and \\(P(10)=20\\) shows that selling \\(6\\) kilograms gives the maximum profit of \\(3{,}600\\) yuan.",
             "解 \\(P'(q)=12-2q=0\\)，得 \\(q=6\\)。比较 \\(P(0)=0\\)、\\(P(6)=36\\) 和 \\(P(10)=20\\)，可知销售 \\(6\\) 千克时利润最大，为 \\(3{,}600\\) 元。"
+          ]
+        },
+        {
+          "section": "4.5",
+          "question": [
+            "A rectangular garden borders a straight wall. A \\(36\\)-meter fence encloses the other three sides. Which dimensions give the greatest area?",
+            "一块矩形花园的一边靠墙，另三边用 \\(36\\) 米长的围栏围起。怎样选取长和宽才能使面积最大？"
+          ],
+          "answer": [
+            "For width \\(w\\) perpendicular to the wall, the area is \\(A(w)=w(36-2w)\\) on \\(0\\le w\\le18\\). Its maximum is at \\(w=9\\), so the side along the wall is \\(18\\) meters and the area is \\(162\\) square meters.",
+            "设垂直于墙的边长为 \\(w\\)，则 \\(A(w)=w(36-2w)\\)，其中 \\(0\\le w\\le18\\)。当 \\(w=9\\) 时面积最大，此时沿墙边长为 \\(18\\) 米，面积为 \\(162\\) 平方米。"
+          ]
+        },
+        {
+          "section": "4.5",
+          "question": [
+            "Cut squares of side \\(x\\) from the four corners of a cardboard square of side \\(18\\) cm and fold the sides into an open box. Find the cut size and maximum volume.",
+            "从边长 \\(18\\) 厘米的正方形纸板四角各剪去一个边长为 \\(x\\) 的小正方形，再折成无盖盒。求使体积最大的 \\(x\\) 和最大体积。"
+          ],
+          "answer": [
+            "The volume is \\(V(x)=x(18-2x)^2\\). Its derivative is \\((18-2x)(18-6x)\\) for \\(0<x<9\\). The critical point \\(x=3\\) gives \\(432\\) cubic centimeters, and the endpoint volumes are zero.",
+            "体积为 \\(V(x)=x(18-2x)^2\\)，在 \\(0<x<9\\) 上有 \\(V'(x)=(18-2x)(18-6x)\\)。临界点 \\(x=3\\) 给出 \\(432\\) 立方厘米，两端体积为零，故这是最大值。"
+          ]
+        },
+        {
+          "section": "4.5",
+          "question": [
+            "A crate has a square base of side \\(s\\) and height \\(h\\), with \\(2s+h=48\\) cm. Find the dimensions of the crate of greatest volume.",
+            "一个箱子底面是边长为 \\(s\\) 的正方形，高为 \\(h\\)，满足 \\(2s+h=48\\) 厘米。求使体积最大的尺寸。"
+          ],
+          "answer": [
+            "The volume is \\(V(s)=s^2(48-2s)\\) for \\(0<s<24\\). The derivative \\(V'(s)=6s(16-s)\\) changes from positive to negative at \\(s=16\\). Thus \\(s=h=16\\) cm and the volume is \\(4096\\) cubic centimeters.",
+            "体积为 \\(V(s)=s^2(48-2s)\\)，其中 \\(0<s<24\\)。导数 \\(V'(s)=6s(16-s)\\) 在 \\(s=16\\) 处由正变负，因此 \\(s=h=16\\) 厘米，最大体积为 \\(4096\\) 立方厘米。"
           ]
         }
       ]
@@ -1526,6 +1999,28 @@ const courseContent = {
       ],
       "items": [
         {
+          "section": "5.1",
+          "question": [
+            "Estimate the area under \\(f(x)=2+x^2\\) on \\([0,2]\\) using four equal subintervals and their midpoints.",
+            "将 \\([0,2]\\) 等分为四段，用中点法估计 \\(f(x)=2+x^2\\) 与 \\(x\\) 轴之间的面积。"
+          ],
+          "answer": [
+            "The width is \\(\\frac{1}{2}\\), and the sample points are \\(\\frac{1}{4},\\frac{3}{4},\\frac{5}{4},\\frac{7}{4}\\). The midpoint sum is \\(\\frac{1}{2}(8+\\frac{1+9+25+49}{16})=\\frac{53}{8}\\).",
+            "每段宽为 \\(\\frac{1}{2}\\)，取样点依次为 \\(\\frac{1}{4},\\frac{3}{4},\\frac{5}{4},\\frac{7}{4}\\)。中点和为 \\(\\frac{1}{2}(8+\\frac{1+9+25+49}{16})=\\frac{53}{8}\\)。"
+          ]
+        },
+        {
+          "section": "5.1",
+          "question": [
+            "Approximate \\(\\int_1^4(x+2)\\,dx\\) by left and right sums with three equal subintervals. Compare each sum with the exact integral.",
+            "将 \\([1,4]\\) 三等分，用左端点和右端点估算 \\(\\int_1^4(x+2)\\,dx\\)，并与精确值比较。"
+          ],
+          "answer": [
+            "The subinterval width is \\(1\\). The left sum is \\(3+4+5=12\\), and the right sum is \\(4+5+6=15\\). The exact integral is \\(\\frac{27}{2}\\), so the left sum is too low and the right sum is too high.",
+            "每段宽度为 \\(1\\)。左端点和为 \\(3+4+5=12\\)，右端点和为 \\(4+5+6=15\\)。精确积分为 \\(\\frac{27}{2}\\)，所以左端点和偏小，右端点和偏大。"
+          ]
+        },
+        {
           "section": "5.2",
           "question": [
             "Divide \\([0,2]\\) into \\(n\\) equal subintervals. Find the right-endpoint Riemann sum \\(S_n\\) for \\(f(x)=x^2\\) and its limit as \\(n\\) tends to infinity.",
@@ -1534,6 +2029,39 @@ const courseContent = {
           "answer": [
             "Each subinterval has width \\(\\frac{2}{n}\\), and the \\(k\\)th right endpoint is \\(\\frac{2k}{n}\\). The \\(k\\)th rectangle has area \\(\\frac{8k^2}{n^3}\\). The formula for the sum of squares gives\n          \\[\n          \\begin{aligned}\n            S_n&=\\frac{8}{n^3}\\sum\\limits_{k=1}^{n}k^2\\\\\n            &=\\frac{4(n+1)(2n+1)}{3n^2}.\n          \\end{aligned}\n          \\]\n          Divide the numerator and denominator by \\(n^2\\) to obtain\n          \\[\\lim\\limits_{n\\to\\infty}S_n=\\frac{8}{3}.\\]",
             "每个小区间的宽度为 \\(\\frac{2}{n}\\)，第 \\(k\\) 个小区间的右端点为 \\(\\frac{2k}{n}\\)，对应的矩形面积为 \\(\\frac{8k^2}{n^3}\\)。由平方和公式得\n          \\[\n          \\begin{aligned}\n            S_n&=\\frac{8}{n^3}\\sum\\limits_{k=1}^{n}k^2\\\\\n            &=\\frac{4(n+1)(2n+1)}{3n^2}.\n          \\end{aligned}\n          \\]\n          分子、分母同除以 \\(n^2\\)，得到\n          \\[\\lim\\limits_{n\\to\\infty}S_n=\\frac{8}{3}.\\]"
+          ]
+        },
+        {
+          "section": "5.2",
+          "question": [
+            "Find the left-endpoint Riemann sum for \\(f(x)=1+3x\\) on \\([1,3]\\) with \\(n\\) equal subintervals, and take its limit.",
+            "将 \\([1,3]\\) 等分为 \\(n\\) 段，求 \\(f(x)=1+3x\\) 的左端点黎曼和及其极限。"
+          ],
+          "answer": [
+            "The width is \\(\\frac{2}{n}\\) and the \\(i\\)-th sample point is \\(1+\\frac{2(i-1)}{n}\\). Thus \\(L_n=\\frac{2}{n}\\sum\\limits_{i=1}^{n}(4+\\frac{6(i-1)}{n})=14-\\frac{6}{n}\\), so the limit is \\(14\\).",
+            "每段宽为 \\(\\frac{2}{n}\\)，第 \\(i\\) 个左端点为 \\(1+\\frac{2(i-1)}{n}\\)。因此 \\(L_n=\\frac{2}{n}\\sum\\limits_{i=1}^{n}(4+\\frac{6(i-1)}{n})=14-\\frac{6}{n}\\)，极限为 \\(14\\)。"
+          ]
+        },
+        {
+          "section": "5.2",
+          "question": [
+            "Recognize the expression as a Riemann sum and evaluate its limit. \\[\\lim\\limits_{n\\to\\infty}\\frac{\\pi}{2n}\\sum\\limits_{k=1}^{n}\\sin\\left(\\frac{\\pi k}{2n}\\right)\\]",
+            "将下式识别为黎曼和，并求其极限。 \\[\\lim\\limits_{n\\to\\infty}\\frac{\\pi}{2n}\\sum\\limits_{k=1}^{n}\\sin\\left(\\frac{\\pi k}{2n}\\right)\\]"
+          ],
+          "answer": [
+            "The width is \\(\\frac{\\pi}{2n}\\) and each sample point is the right endpoint. The limit equals \\(\\int_0^{\\frac{\\pi}{2}}\\sin x\\,dx=[-\\cos x]_0^{\\frac{\\pi}{2}}=1\\).",
+            "小区间宽为 \\(\\frac{\\pi}{2n}\\)，取样点是各段右端点。该极限等于 \\(\\int_0^{\\frac{\\pi}{2}}\\sin x\\,dx=[-\\cos x]_0^{\\frac{\\pi}{2}}=1\\)。"
+          ]
+        },
+        {
+          "section": "5.3",
+          "question": [
+            "Evaluate \\(\\int_{-2}^{3}(x-1)\\,dx\\) as a signed area.",
+            "用带符号的面积计算 \\(\\int_{-2}^{3}(x-1)\\,dx\\)。"
+          ],
+          "answer": [
+            "On \\([-2,1]\\) the triangle has signed area \\(-\\frac{9}{2}\\). On \\([1,3]\\) the triangle has area \\(2\\). Their sum is \\(-\\frac{5}{2}\\).",
+            "\\([-2,1]\\) 上的三角形在 \\(x\\) 轴下方，贡献 \\(-\\frac{9}{2}\\)。\\([1,3]\\) 上的三角形贡献 \\(2\\)，两者相加为 \\(-\\frac{5}{2}\\)。"
           ]
         },
         {
@@ -1556,6 +2084,17 @@ const courseContent = {
           "answer": [
             "Let \\(G(u)=\\int_0^u\\sqrt{1+t^2}\\,dt\\). Then \\(F(x)=G(x^2)-G(x)\\), and the Fundamental Theorem gives \\(G'(u)=\\sqrt{1+u^2}\\). Apply the chain rule to obtain\n          \\[F'(x)=2x\\sqrt{1+x^4}-\\sqrt{1+x^2}.\\]",
             "令 \\(G(u)=\\int_0^u\\sqrt{1+t^2}\\,dt\\)，则 \\(F(x)=G(x^2)-G(x)\\)。由微积分基本定理得 \\(G'(u)=\\sqrt{1+u^2}\\)，再用链式法则可得\n          \\[F'(x)=2x\\sqrt{1+x^4}-\\sqrt{1+x^2}.\\]"
+          ]
+        },
+        {
+          "section": "5.4",
+          "question": [
+            "For \\(x>0\\), find the derivative of \\(F(x)=\\int_1^{\\sqrt{x}}(t^3+1)\\,dt\\).",
+            "当 \\(x>0\\) 时，求 \\(F(x)=\\int_1^{\\sqrt{x}}(t^3+1)\\,dt\\) 的导数。"
+          ],
+          "answer": [
+            "The Fundamental Theorem of Calculus gives the integrand at \\(t=\\sqrt{x}\\). Apply the chain rule to obtain \\(F'(x)=\\frac{x^{\\frac{3}{2}}+1}{2\\sqrt{x}}\\).",
+            "由微积分基本定理，先在 \\(t=\\sqrt{x}\\) 处求被积函数的值，再用链式法则得 \\(F'(x)=\\frac{x^{\\frac{3}{2}}+1}{2\\sqrt{x}}\\)。"
           ]
         },
         {
@@ -1610,6 +2149,72 @@ const courseContent = {
             "Write \\(x\\ln x=\\frac{\\ln x}{\\frac{1}{x}}\\). As \\(x\\) approaches zero from the right, the numerator tends to \\(-\\infty\\) and the denominator to \\(+\\infty\\). By L’Hôpital’s rule,\n          \\[\n          \\begin{aligned}\n            \\lim\\limits_{x\\to0^+}x\\ln x&=\\lim\\limits_{x\\to0^+}\\frac{\\frac{1}{x}}{-\\frac{1}{x^2}}\\\\\n            &=\\lim\\limits_{x\\to0^+}(-x)=0.\n          \\end{aligned}\n          \\]",
             "将 \\(x\\ln x\\) 写成 \\(\\frac{\\ln x}{\\frac{1}{x}}\\)。当 \\(x\\) 从右侧趋于零时，分子趋于 \\(-\\infty\\)，分母趋于 \\(+\\infty\\)。由洛必达法则得\n          \\[\n          \\begin{aligned}\n            \\lim\\limits_{x\\to0^+}x\\ln x&=\\lim\\limits_{x\\to0^+}\\frac{\\frac{1}{x}}{-\\frac{1}{x^2}}\\\\\n            &=\\lim\\limits_{x\\to0^+}(-x)=0.\n          \\end{aligned}\n          \\]"
           ]
+        },
+        {
+          "section": "7.5",
+          "question": [
+            "Identify the indeterminate form and evaluate \\(\\lim\\limits_{x\\to0}\\frac{\\ln(1+3x)}{x}\\).",
+            "判断未定式类型，并求 \\(\\lim\\limits_{x\\to0}\\frac{\\ln(1+3x)}{x}\\)。"
+          ],
+          "answer": [
+            "This has form \\(\\frac{0}{0}\\). Differentiating numerator and denominator gives the quotient \\(\\frac{3}{1+3x}\\), whose limit is \\(3\\).",
+            "这是 \\(\\frac{0}{0}\\) 型未定式。分子、分母分别求导后，所得商为 \\(\\frac{3}{1+3x}\\)，极限为 \\(3\\)。"
+          ]
+        },
+        {
+          "section": "7.5",
+          "question": [
+            "Evaluate \\(\\lim\\limits_{x\\to0}\\frac{e^{2x}-1-2x}{x^2}\\) using L’Hôpital’s rule.",
+            "用洛必达法则求 \\(\\lim\\limits_{x\\to0}\\frac{e^{2x}-1-2x}{x^2}\\)。"
+          ],
+          "answer": [
+            "After one differentiation the quotient is \\(\\frac{2e^{2x}-2}{2x}\\), still of form \\(\\frac{0}{0}\\). A second application gives \\(\\lim\\limits_{x\\to0}2e^{2x}=2\\).",
+            "第一次使用洛必达法则得到 \\(\\frac{2e^{2x}-2}{2x}\\)，仍为 \\(\\frac{0}{0}\\) 型。再次使用可得 \\(\\lim\\limits_{x\\to0}2e^{2x}=2\\)。"
+          ]
+        },
+        {
+          "section": "7.5",
+          "question": [
+            "Evaluate \\(\\lim\\limits_{x\\to\\infty}\\frac{x^2}{e^{\\frac{x}{2}}}\\).",
+            "求 \\(\\lim\\limits_{x\\to\\infty}\\frac{x^2}{e^{\\frac{x}{2}}}\\)。"
+          ],
+          "answer": [
+            "The form is \\(\\frac{\\infty}{\\infty}\\). Two applications of L’Hôpital’s rule reduce it to \\(\\lim\\limits_{x\\to\\infty}\\frac{8}{e^{\\frac{x}{2}}}=0\\).",
+            "这是 \\(\\frac{\\infty}{\\infty}\\) 型未定式。两次使用洛必达法则，得到 \\(\\lim\\limits_{x\\to\\infty}\\frac{8}{e^{\\frac{x}{2}}}=0\\)。"
+          ]
+        },
+        {
+          "section": "7.5",
+          "question": [
+            "Evaluate \\(\\lim\\limits_{x\\to0^+}(1+4x)^{\\frac{1}{x}}\\) by taking logarithms.",
+            "先取对数，再求 \\(\\lim\\limits_{x\\to0^+}(1+4x)^{\\frac{1}{x}}\\)。"
+          ],
+          "answer": [
+            "Writing \\(y=(1+4x)^{\\frac{1}{x}}\\), we have \\(\\ln y=\\frac{\\ln(1+4x)}{x}\\). Its limit is \\(4\\) by L’Hôpital’s rule, so the original limit is \\(e^4\\).",
+            "设 \\(y=(1+4x)^{\\frac{1}{x}}\\)，则 \\(\\ln y=\\frac{\\ln(1+4x)}{x}\\)。用洛必达法则得对数的极限为 \\(4\\)，所以原极限为 \\(e^4\\)。"
+          ]
+        },
+        {
+          "section": "7.5",
+          "question": [
+            "Use L’Hôpital’s rule to evaluate \\(\\lim\\limits_{x\\to0}\\frac{1-\\cos(3x)}{x\\sin x}\\).",
+            "用洛必达法则求 \\(\\lim\\limits_{x\\to0}\\frac{1-\\cos(3x)}{x\\sin x}\\)。"
+          ],
+          "answer": [
+            "The numerator and denominator both vanish at \\(0\\), as do their first derivatives. Differentiating twice gives the quotient \\(\\frac{9\\cos(3x)}{2\\cos x-x\\sin x}\\), whose limit is \\(\\frac{9}{2}\\).",
+            "分子和分母在 \\(0\\) 处都为零，它们的一阶导数在 \\(0\\) 处也都为零。两次使用洛必达法则后得到 \\(\\frac{9\\cos(3x)}{2\\cos x-x\\sin x}\\)，极限为 \\(\\frac{9}{2}\\)。"
+          ]
+        },
+        {
+          "section": "7.5",
+          "question": [
+            "First combine the terms, then evaluate \\(\\lim\\limits_{x\\to0^+}\\left(\\frac{1}{\\ln(1+x)}-\\frac{1}{x}\\right)\\).",
+            "先通分，再求 \\(\\lim\\limits_{x\\to0^+}\\left(\\frac{1}{\\ln(1+x)}-\\frac{1}{x}\\right)\\)。"
+          ],
+          "answer": [
+            "The combined fraction is \\(\\frac{x-\\ln(1+x)}{x\\ln(1+x)}\\). Both numerator and denominator vanish at \\(0\\), and so do their first derivatives. Their second derivatives tend to \\(1\\) and \\(2\\), respectively. The limit is \\(\\frac{1}{2}\\).",
+            "通分得 \\(\\frac{x-\\ln(1+x)}{x\\ln(1+x)}\\)。分子和分母以及各自的一阶导数都趋于零。各自的二阶导数分别趋于 \\(1\\) 和 \\(2\\)，故所求极限为 \\(\\frac{1}{2}\\)。"
+          ]
         }
       ]
     },
@@ -1641,6 +2246,72 @@ const courseContent = {
             "Take \\(u=\\ln x\\) and \\(dv=dx\\). Then \\(du=\\frac{dx}{x}\\) and \\(v=x\\), so \\(v\\,du=dx\\). It follows that\n          \\[\n          \\begin{aligned}\n            \\int_1^e\\ln x\\,dx&=\\bigl[x\\ln x-x\\bigr]_1^e\\\\\n            &=0-(-1)=1.\n          \\end{aligned}\n          \\]",
             "取 \\(u=\\ln x\\)、\\(dv=dx\\)，则 \\(du=\\frac{dx}{x}\\)、\\(v=x\\)，因此 \\(v\\,du=dx\\)。由分部积分公式得\n          \\[\n          \\begin{aligned}\n            \\int_1^e\\ln x\\,dx&=\\bigl[x\\ln x-x\\bigr]_1^e\\\\\n            &=0-(-1)=1.\n          \\end{aligned}\n          \\]"
           ]
+        },
+        {
+          "section": "8.2",
+          "question": [
+            "Evaluate \\(\\int x\\sin(2x)\\,dx\\) by integration by parts.",
+            "用分部积分法求 \\(\\int x\\sin(2x)\\,dx\\)。"
+          ],
+          "answer": [
+            "Take \\(u=x\\), \\(dv=\\sin(2x)\\,dx\\), so \\(v=-\\frac{\\cos(2x)}{2}\\). The result is \\(-\\frac{x\\cos(2x)}{2}+\\frac{\\sin(2x)}{4}+C\\).",
+            "取 \\(u=x\\)、\\(dv=\\sin(2x)\\,dx\\)，得 \\(v=-\\frac{\\cos(2x)}{2}\\)。代入公式得 \\(-\\frac{x\\cos(2x)}{2}+\\frac{\\sin(2x)}{4}+C\\)。"
+          ]
+        },
+        {
+          "section": "8.2",
+          "question": [
+            "Use integration by parts to evaluate \\(\\int_0^1 xe^{2x}\\,dx\\).",
+            "用分部积分法计算 \\(\\int_0^1 xe^{2x}\\,dx\\)。"
+          ],
+          "answer": [
+            "An antiderivative is \\(e^{2x}(\\frac{x}{2}-\\frac{1}{4})\\). Evaluating at \\(1\\) and \\(0\\) gives \\(\\frac{e^2+1}{4}\\).",
+            "一个原函数为 \\(e^{2x}(\\frac{x}{2}-\\frac{1}{4})\\)。代入上下限，得 \\(\\frac{e^2+1}{4}\\)。"
+          ]
+        },
+        {
+          "section": "8.2",
+          "question": [
+            "For \\(x>0\\), find \\(\\int x^2\\ln x\\,dx\\).",
+            "当 \\(x>0\\) 时，求 \\(\\int x^2\\ln x\\,dx\\)。"
+          ],
+          "answer": [
+            "Take \\(u=\\ln x\\) and \\(dv=x^2\\,dx\\). Then \\(uv=\\frac{x^3\\ln x}{3}\\), and \\(\\int v\\,du=\\frac{x^3}{9}\\). The result is \\(\\frac{x^3\\ln x}{3}-\\frac{x^3}{9}+C\\).",
+            "取 \\(u=\\ln x\\)、\\(dv=x^2\\,dx\\)，得 \\(uv=\\frac{x^3\\ln x}{3}\\)、\\(\\int v\\,du=\\frac{x^3}{9}\\)。故原积分为 \\(\\frac{x^3\\ln x}{3}-\\frac{x^3}{9}+C\\)。"
+          ]
+        },
+        {
+          "section": "8.2",
+          "question": [
+            "Evaluate \\(\\int e^{2x}\\cos x\\,dx\\) using integration by parts twice.",
+            "用两次分部积分求 \\(\\int e^{2x}\\cos x\\,dx\\)。"
+          ],
+          "answer": [
+            "If \\(I\\) denotes the integral, two integrations by parts give \\(I=\\frac{e^{2x}\\cos x}{2}+\\frac{e^{2x}\\sin x}{4}-\\frac{I}{4}\\), up to an additive constant. Hence \\(I=\\frac{e^{2x}(2\\cos x+\\sin x)}{5}+C\\).",
+            "记原积分为 \\(I\\)。两次分部积分得到 \\(I=\\frac{e^{2x}\\cos x}{2}+\\frac{e^{2x}\\sin x}{4}-\\frac{I}{4}\\)，暂略去积分常数。移项得 \\(I=\\frac{e^{2x}(2\\cos x+\\sin x)}{5}+C\\)。"
+          ]
+        },
+        {
+          "section": "8.2",
+          "question": [
+            "Apply integration by parts twice to compute \\(\\int_1^{e^2}(\\ln x)^2\\,dx\\).",
+            "用两次分部积分计算 \\(\\int_1^{e^2}(\\ln x)^2\\,dx\\)。"
+          ],
+          "answer": [
+            "Taking \\(u=(\\ln x)^2\\) and \\(dv=dx\\) leaves \\(\\int \\ln x\\,dx\\) in the remaining term. Applying parts again gives the antiderivative \\(x((\\ln x)^2-2\\ln x+2)\\). Evaluating at the endpoints gives \\(2e^2-2\\).",
+            "取 \\(u=(\\ln x)^2\\)、\\(dv=dx\\)，剩下的积分是 \\(\\int\\ln x\\,dx\\) 的常数倍。再用一次分部积分得原函数 \\(x((\\ln x)^2-2\\ln x+2)\\)。代入上下限得 \\(2e^2-2\\)。"
+          ]
+        },
+        {
+          "section": "8.2",
+          "question": [
+            "Compute \\(\\int x^2\\sin(2x)\\,dx\\) by reducing the power of \\(x\\) at each step.",
+            "每次分部积分将 \\(x\\) 的次数降低一次，求 \\(\\int x^2\\sin(2x)\\,dx\\)。"
+          ],
+          "answer": [
+            "Taking \\(u=x^2\\) gives \\(-\\frac{x^2\\cos(2x)}{2}+\\int x\\cos(2x)\\,dx\\). A second application gives \\(-\\frac{x^2\\cos(2x)}{2}+\\frac{x\\sin(2x)}{2}+\\frac{\\cos(2x)}{4}+C\\).",
+            "先取 \\(u=x^2\\)，得 \\(-\\frac{x^2\\cos(2x)}{2}+\\int x\\cos(2x)\\,dx\\)。再分部积分一次，得 \\(-\\frac{x^2\\cos(2x)}{2}+\\frac{x\\sin(2x)}{2}+\\frac{\\cos(2x)}{4}+C\\)。"
+          ]
         }
       ]
     },
@@ -1663,6 +2334,72 @@ const courseContent = {
           ]
         },
         {
+          "section": "10.1",
+          "question": [
+            "Find \\(\\lim\\limits_{n\\to\\infty}\\frac{5n^2-4}{2n^2+n}\\).",
+            "求 \\(\\lim\\limits_{n\\to\\infty}\\frac{5n^2-4}{2n^2+n}\\)。"
+          ],
+          "answer": [
+            "Divide numerator and denominator by \\(n^2\\). The quotient tends to \\(\\frac{5}{2}\\).",
+            "分子、分母同除以 \\(n^2\\)，所得极限为 \\(\\frac{5}{2}\\)。"
+          ]
+        },
+        {
+          "section": "10.1",
+          "question": [
+            "Determine whether \\(a_n=(-1)^n(1+\\frac{2}{n})\\) converges. Justify your answer using subsequences.",
+            "判断数列 \\(a_n=(-1)^n(1+\\frac{2}{n})\\) 是否收敛，并用子数列说明理由。"
+          ],
+          "answer": [
+            "The even subsequence tends to \\(1\\), and the odd subsequence tends to \\(-1\\). Their limits differ, so the sequence diverges.",
+            "偶数项子数列趋于 \\(1\\)，奇数项子数列趋于 \\(-1\\)。两个极限不同，因此原数列发散。"
+          ]
+        },
+        {
+          "section": "10.1",
+          "question": [
+            "Let \\(a_1=2\\) and \\(a_{n+1}=\\frac{a_n+6}{2}\\). Show that \\((a_n)\\) is increasing and bounded above, and find its limit.",
+            "设 \\(a_1=2\\)，\\(a_{n+1}=\\frac{a_n+6}{2}\\)。证明数列递增且有上界，并求其极限。"
+          ],
+          "answer": [
+            "The recurrence gives \\(6-a_{n+1}=\\frac{6-a_n}{2}\\), hence \\(a_n=6-\\frac{4}{2^{n-1}}\\). It increases toward \\(6\\), which is an upper bound.",
+            "由递推式得 \\(6-a_{n+1}=\\frac{6-a_n}{2}\\)，故 \\(a_n=6-\\frac{4}{2^{n-1}}\\)。数列递增，且以 \\(6\\) 为上界，极限为 \\(6\\)。"
+          ]
+        },
+        {
+          "section": "10.1",
+          "question": [
+            "Use the squeeze theorem to find \\(\\lim\\limits_{n\\to\\infty}\\frac{\\sin n}{n+2}\\).",
+            "用夹逼定理求 \\(\\lim\\limits_{n\\to\\infty}\\frac{\\sin n}{n+2}\\)。"
+          ],
+          "answer": [
+            "The absolute value is bounded by \\(\\frac{1}{n+2}\\), which tends to zero. The limit is \\(0\\).",
+            "绝对值不超过 \\(\\frac{1}{n+2}\\)，而它趋于 \\(0\\)，故所求极限为 \\(0\\)。"
+          ]
+        },
+        {
+          "section": "10.1",
+          "question": [
+            "Suppose \\(a_1=4\\) and \\(a_n=a_{n-1}+2n\\) for \\(n\\ge2\\). Find an explicit formula and determine the behavior of \\(a_n\\) as \\(n\\) increases.",
+            "设 \\(a_1=4\\)，当 \\(n\\ge2\\) 时 \\(a_n=a_{n-1}+2n\\)。求通项，并判断 \\(n\\) 增大时数列的变化。"
+          ],
+          "answer": [
+            "Summing the increments gives \\(a_n=4+2\\sum\\limits_{k=2}^{n}k=n(n+1)+2\\). It is strictly increasing and tends to \\(+\\infty\\).",
+            "将各项增量相加，得 \\(a_n=4+2\\sum\\limits_{k=2}^{n}k=n(n+1)+2\\)。数列严格递增并趋于 \\(+\\infty\\)。"
+          ]
+        },
+        {
+          "section": "10.1",
+          "question": [
+            "Determine whether \\(a_n=\\frac{3^{n+1}}{7^n}\\), \\(n\\ge1\\), is monotone and bounded. Find its limit.",
+            "判断数列 \\(a_n=\\frac{3^{n+1}}{7^n}\\)（\\(n\\ge1\\)）的单调性和有界性，并求其极限。"
+          ],
+          "answer": [
+            "Write \\(a_n=3(\\frac{3}{7})^n\\). It decreases because the ratio is \\(\\frac{3}{7}\\). Its terms lie between \\(0\\) and \\(\\frac{9}{7}\\), and its limit is \\(0\\).",
+            "写成 \\(a_n=3(\\frac{3}{7})^n\\)。由于公比为 \\(\\frac{3}{7}\\)，数列递减，且有上下界 \\(0\\) 和 \\(\\frac{9}{7}\\)。极限为 \\(0\\)。"
+          ]
+        },
+        {
           "section": "10.2",
           "question": [
             "Determine whether the geometric series converges. If it does, find its sum.\n          \\[\\sum\\limits_{n=1}^{\\infty}4\\left(-\\frac{2}{3}\\right)^{n-1}\\]",
@@ -1671,6 +2408,28 @@ const courseContent = {
           "answer": [
             "The first term is \\(4\\) and the common ratio is \\(r=-\\frac{2}{3}\\). Since \\(|r|<1\\), the series converges to\n          \\[\\sum\\limits_{n=1}^{\\infty}4r^{n-1}=\\frac{4}{1-r}=\\frac{12}{5}.\\]",
             "首项为 \\(4\\)，公比为 \\(r=-\\frac{2}{3}\\)。由于 \\(|r|<1\\)，级数收敛，其和为\n          \\[\\sum\\limits_{n=1}^{\\infty}4r^{n-1}=\\frac{4}{1-r}=\\frac{12}{5}.\\]"
+          ]
+        },
+        {
+          "section": "10.2",
+          "question": [
+            "Find the sum of the telescoping series. \\[\\sum\\limits_{n=1}^{\\infty}\\left(\\frac{1}{n+1}-\\frac{1}{n+2}\\right)\\]",
+            "求这个裂项相消级数的和。 \\[\\sum\\limits_{n=1}^{\\infty}\\left(\\frac{1}{n+1}-\\frac{1}{n+2}\\right)\\]"
+          ],
+          "answer": [
+            "The partial sum through \\(N\\) is \\(\\frac{1}{2}-\\frac{1}{N+2}\\), which tends to \\(\\frac{1}{2}\\).",
+            "前 \\(N\\) 项相消后得 \\(\\frac{1}{2}-\\frac{1}{N+2}\\)，其极限为 \\(\\frac{1}{2}\\)。"
+          ]
+        },
+        {
+          "section": "10.2",
+          "question": [
+            "Is \\(\\sum\\limits_{n=1}^{\\infty}\\frac{(-3)^n}{5^{n+1}}\\) absolutely convergent? Find its sum if it converges.",
+            "判断 \\(\\sum\\limits_{n=1}^{\\infty}\\frac{(-3)^n}{5^{n+1}}\\) 是否绝对收敛。若收敛，求其和。"
+          ],
+          "answer": [
+            "The absolute term ratio is \\(\\frac{3}{5}<1\\), so the series converges absolutely. Its first term is \\(-\\frac{3}{25}\\) and its common ratio is \\(-\\frac{3}{5}\\), giving the sum \\(-\\frac{3}{40}\\).",
+            "相邻项的绝对值之比为 \\(\\frac{3}{5}<1\\)，所以级数绝对收敛。首项为 \\(-\\frac{3}{25}\\)，公比为 \\(-\\frac{3}{5}\\)，由等比级数求和公式得 \\(-\\frac{3}{40}\\)。"
           ]
         },
         {
@@ -1685,6 +2444,17 @@ const courseContent = {
           ]
         },
         {
+          "section": "10.3",
+          "question": [
+            "Use the integral test to determine whether the series converges. \\[\\sum\\limits_{n=2}^{\\infty}\\frac{1}{n(\\ln n)^2}\\]",
+            "用积分判别法判断该级数是否收敛。 \\[\\sum\\limits_{n=2}^{\\infty}\\frac{1}{n(\\ln n)^2}\\]"
+          ],
+          "answer": [
+            "The corresponding function is positive, continuous and decreasing for \\(x\\ge2\\). With \\(u=\\ln x\\), the integral from \\(2\\) to infinity equals \\(\\frac{1}{\\ln2}\\). Thus the series converges.",
+            "对应函数在 \\(x\\ge2\\) 上正、连续且递减。以 \\(u=\\ln x\\) 换元，得从 \\(2\\) 到无穷的积分为 \\(\\frac{1}{\\ln2}\\)，故级数收敛。"
+          ]
+        },
+        {
           "section": "10.4",
           "question": [
             "Use limit comparison to determine whether the series converges.\n          \\[\\sum\\limits_{n=1}^{\\infty}\\frac{3n+1}{n^3+4}\\]",
@@ -1693,6 +2463,28 @@ const courseContent = {
           "answer": [
             "For the positive terms \\(a_n=\\frac{3n+1}{n^3+4}\\), compare with \\(b_n=\\frac{1}{n^2}\\). The ratio satisfies\n          \\[\\lim\\limits_{n\\to\\infty}\\frac{a_n}{b_n}=\\lim\\limits_{n\\to\\infty}\\frac{3+\\frac{1}{n}}{1+\\frac{4}{n^3}}=3.\\]\n          The \\(p\\)-series with terms \\(b_n\\) converges, so limit comparison gives convergence of the given series.",
             "将正项 \\(a_n=\\frac{3n+1}{n^3+4}\\) 与 \\(b_n=\\frac{1}{n^2}\\) 比较。两者的比值满足\n          \\[\\lim\\limits_{n\\to\\infty}\\frac{a_n}{b_n}=\\lim\\limits_{n\\to\\infty}\\frac{3+\\frac{1}{n}}{1+\\frac{4}{n^3}}=3.\\]\n          以 \\(b_n\\) 为通项的 \\(p\\) 级数收敛，因此由极限比较判别法可知原级数收敛。"
+          ]
+        },
+        {
+          "section": "10.4",
+          "question": [
+            "Use limit comparison to determine whether the series converges. \\[\\sum\\limits_{n=1}^{\\infty}\\frac{1}{\\sqrt{n^2+3}}\\]",
+            "用极限比较判别法判断该级数是否收敛。 \\[\\sum\\limits_{n=1}^{\\infty}\\frac{1}{\\sqrt{n^2+3}}\\]"
+          ],
+          "answer": [
+            "Compare with \\(\\frac{1}{n}\\). The ratio \\(\\frac{n}{\\sqrt{n^2+3}}\\) tends to \\(1\\). Since the harmonic series diverges, the given series diverges.",
+            "与 \\(\\frac{1}{n}\\) 比较，比值 \\(\\frac{n}{\\sqrt{n^2+3}}\\) 趋于 \\(1\\)。调和级数发散，所以所给级数发散。"
+          ]
+        },
+        {
+          "section": "10.4",
+          "question": [
+            "The terms of \\(\\sum\\limits_{n=1}^{\\infty}\\frac{1}{3n+2}\\) tend to zero. Decide whether the series converges, and justify your answer with a comparison.",
+            "级数 \\(\\sum\\limits_{n=1}^{\\infty}\\frac{1}{3n+2}\\) 的通项趋于零。用比较判别法判断该级数是否收敛。"
+          ],
+          "answer": [
+            "The ratio of its terms to \\(\\frac{1}{n}\\) tends to \\(\\frac{1}{3}\\). By limit comparison with the harmonic series, the series diverges.",
+            "将通项与 \\(\\frac{1}{n}\\) 相比，所得比值趋于 \\(\\frac{1}{3}\\)。调和级数发散，由极限比较判别法知原级数也发散。"
           ]
         },
         {
@@ -1707,6 +2499,17 @@ const courseContent = {
           ]
         },
         {
+          "section": "10.5",
+          "question": [
+            "Determine convergence using the root test. \\[\\sum\\limits_{n=1}^{\\infty}\\left(\\frac{2n+1}{3n}\\right)^n\\]",
+            "用根值判别法判断收敛性。 \\[\\sum\\limits_{n=1}^{\\infty}\\left(\\frac{2n+1}{3n}\\right)^n\\]"
+          ],
+          "answer": [
+            "The \\(n\\)-th root of the term is \\(\\frac{2n+1}{3n}\\), with limit \\(\\frac{2}{3}<1\\). The series converges.",
+            "通项的 \\(n\\) 次方根为 \\(\\frac{2n+1}{3n}\\)，极限 \\(\\frac{2}{3}<1\\)，故级数收敛。"
+          ]
+        },
+        {
           "section": "10.6",
           "question": [
             "Classify the series as absolutely convergent, conditionally convergent, or divergent. If it converges, give an upper bound for the error after the first five terms.\n          \\[\\sum\\limits_{n=1}^{\\infty}\\frac{(-1)^{n-1}}{2n+1}\\]",
@@ -1715,6 +2518,17 @@ const courseContent = {
           "answer": [
             "The magnitudes \\(b_n=\\frac{1}{2n+1}\\) decrease to zero, so the alternating series converges. For \\(n\\ge1\\), \\(b_n\\ge\\frac{1}{3n}\\), so the series of magnitudes diverges by comparison with one third of the harmonic series. The original series converges conditionally. The alternating series remainder estimate bounds the error by \\(b_6=\\frac{1}{13}\\).",
             "各项的绝对值 \\(b_n=\\frac{1}{2n+1}\\) 单调递减并趋于零，由交错级数判别法知原级数收敛。当 \\(n\\ge1\\) 时，\\(b_n\\ge\\frac{1}{3n}\\)，与调和级数的三分之一比较可知，各项取绝对值后所得的级数发散。因此原级数条件收敛。由交错级数余项估计，误差的绝对值至多为 \\(b_6=\\frac{1}{13}\\)。"
+          ]
+        },
+        {
+          "section": "10.6",
+          "question": [
+            "Classify the series as absolutely convergent, conditionally convergent, or divergent. Give a bound on the error after \\(N\\) terms if the series converges. \\[\\sum\\limits_{n=1}^{\\infty}\\frac{(-1)^n}{n+4}\\]",
+            "判断该级数绝对收敛、条件收敛还是发散。若收敛，给出取前 \\(N\\) 项的误差上界。 \\[\\sum\\limits_{n=1}^{\\infty}\\frac{(-1)^n}{n+4}\\]"
+          ],
+          "answer": [
+            "The positive magnitudes decrease to zero, so the alternating series converges. The series of magnitudes is a tail of the harmonic series, so convergence is conditional. The error is at most \\(\\frac{1}{N+5}\\).",
+            "通项的绝对值递减到零，由交错级数判别法知原级数收敛。绝对值级数是调和级数去掉有限项所得，故原级数条件收敛。误差不超过 \\(\\frac{1}{N+5}\\)。"
           ]
         },
         {
@@ -1729,6 +2543,39 @@ const courseContent = {
           ]
         },
         {
+          "section": "10.7",
+          "question": [
+            "Find the radius and interval of convergence, and the sum on that interval. \\[\\sum\\limits_{n=0}^{\\infty}\\left(\\frac{x-2}{3}\\right)^n\\]",
+            "求这个幂级数的收敛半径、收敛区间，以及区间内的和函数。 \\[\\sum\\limits_{n=0}^{\\infty}\\left(\\frac{x-2}{3}\\right)^n\\]"
+          ],
+          "answer": [
+            "The geometric ratio has magnitude less than one for \\(-1<x<5\\). At each endpoint the terms fail to tend to zero. Thus \\(R=3\\), the interval is \\((-1,5)\\), and the sum is \\(\\frac{3}{5-x}\\).",
+            "当 \\(-1<x<5\\) 时，公比的绝对值小于 \\(1\\)。两端点通项都不趋于零，所以 \\(R=3\\)，收敛区间为 \\((-1,5)\\)，和为 \\(\\frac{3}{5-x}\\)。"
+          ]
+        },
+        {
+          "section": "10.7",
+          "question": [
+            "Find the interval of convergence. Check both endpoints. \\[\\sum\\limits_{n=1}^{\\infty}\\frac{(x+1)^n}{n2^n}\\]",
+            "求该幂级数的收敛区间，并检验两个端点。 \\[\\sum\\limits_{n=1}^{\\infty}\\frac{(x+1)^n}{n2^n}\\]"
+          ],
+          "answer": [
+            "The ratio test gives \\(|x+1|<2\\). At \\(x=-3\\) the series is alternating harmonic and converges. At \\(x=1\\) it is harmonic and diverges. The interval is \\([-3,1)\\).",
+            "比值判别法给出 \\(|x+1|<2\\)。当 \\(x=-3\\) 时为交错调和级数，收敛。当 \\(x=1\\) 时为调和级数，发散。收敛区间为 \\([-3,1)\\)。"
+          ]
+        },
+        {
+          "section": "10.7",
+          "question": [
+            "Represent \\(f(x)=\\frac{1}{1+9x^2}\\) by a power series centered at \\(0\\). Give its interval of convergence.",
+            "将 \\(f(x)=\\frac{1}{1+9x^2}\\) 在 \\(0\\) 处展开为幂级数，并给出收敛区间。"
+          ],
+          "answer": [
+            "Use the geometric ratio \\(-9x^2\\). The expansion is \\(\\sum\\limits_{n=0}^{\\infty}(-9)^n x^{2n}\\). The magnitude condition gives \\(|x|<\\frac{1}{3}\\), and at equality the terms fail to tend to zero. The interval is \\((-\\frac{1}{3},\\frac{1}{3})\\).",
+            "取等比级数的公比为 \\(-9x^2\\)，展开式为 \\(\\sum\\limits_{n=0}^{\\infty}(-9)^n x^{2n}\\)。公比的绝对值小于 \\(1\\) 等价于 \\(|x|<\\frac{1}{3}\\)，两端的通项都不趋于零，故收敛区间为 \\((-\\frac{1}{3},\\frac{1}{3})\\)。"
+          ]
+        },
+        {
           "section": "10.8",
           "question": [
             "Write the Taylor series of \\(f(x)=\\sin x\\) centered at \\(a=\\frac{\\pi}{2}\\). Give its degree-four Taylor polynomial.",
@@ -1737,6 +2584,39 @@ const courseContent = {
           "answer": [
             "Set \\(h=x-\\frac{\\pi}{2}\\). The function and its successive derivatives repeat in the order \\(\\sin x,\\cos x,-\\sin x,-\\cos x\\). Evaluating at \\(a=\\frac{\\pi}{2}\\) gives \\(f^{(2k)}(a)=(-1)^k\\) and \\(f^{(2k+1)}(a)=0\\) for \\(k\\ge0\\). Using the coefficients \\(\\frac{f^{(n)}(a)}{n!}\\) gives the Taylor series\n          \\[\\sum\\limits_{k=0}^{\\infty}\\frac{(-1)^k h^{2k}}{(2k)!}.\\]\n          Its terms through degree four give\n          \\[P_4(x)=1-\\frac{h^2}{2!}+\\frac{h^4}{4!}.\\]",
             "令 \\(h=x-\\frac{\\pi}{2}\\)。函数及其各阶导数按 \\(\\sin x,\\cos x,-\\sin x,-\\cos x\\) 循环。代入 \\(a=\\frac{\\pi}{2}\\)，得 \\(f^{(2k)}(a)=(-1)^k\\)、\\(f^{(2k+1)}(a)=0\\)，其中 \\(k\\ge0\\)。用 \\(\\frac{f^{(n)}(a)}{n!}\\) 作系数，得到泰勒级数\n          \\[\\sum\\limits_{k=0}^{\\infty}\\frac{(-1)^k h^{2k}}{(2k)!}.\\]\n          取到四次项，得到\n          \\[P_4(x)=1-\\frac{h^2}{2!}+\\frac{h^4}{4!}.\\]"
+          ]
+        },
+        {
+          "section": "10.8",
+          "question": [
+            "Write the Maclaurin series for \\(e^{-2x}\\). Give its first four nonzero terms and its interval of convergence.",
+            "写出 \\(e^{-2x}\\) 的麦克劳林级数、前四个非零项和收敛区间。"
+          ],
+          "answer": [
+            "Substitute \\(-2x\\) into the series for \\(e^x\\) to get \\(\\sum\\limits_{n=0}^{\\infty}\\frac{(-2)^nx^n}{n!}\\). It starts with \\(1-2x+2x^2-\\frac{4}{3}x^3\\) and converges for every real \\(x\\).",
+            "在 \\(e^x\\) 的级数中代入 \\(-2x\\)，得到 \\(\\sum\\limits_{n=0}^{\\infty}\\frac{(-2)^nx^n}{n!}\\)。前四项为 \\(1-2x+2x^2-\\frac{4}{3}x^3\\)，在整个实数轴上收敛。"
+          ]
+        },
+        {
+          "section": "10.8",
+          "question": [
+            "Find the degree-three Taylor polynomial of \\(\\ln x\\) centered at \\(x=2\\).",
+            "求 \\(\\ln x\\) 在 \\(x=2\\) 处的三次泰勒多项式。"
+          ],
+          "answer": [
+            "The first three derivatives at \\(2\\) are \\(\\frac{1}{2},-\\frac{1}{4},\\frac{1}{4}\\). Dividing by the corresponding factorials gives \\(P_3(x)=\\ln2+\\frac{x-2}{2}-\\frac{(x-2)^2}{8}+\\frac{(x-2)^3}{24}\\).",
+            "在 \\(2\\) 处的一至三阶导数为 \\(\\frac{1}{2},-\\frac{1}{4},\\frac{1}{4}\\)。分别除以相应阶乘，得 \\(P_3(x)=\\ln2+\\frac{x-2}{2}-\\frac{(x-2)^2}{8}+\\frac{(x-2)^3}{24}\\)。"
+          ]
+        },
+        {
+          "section": "10.8",
+          "question": [
+            "Find the Taylor polynomial through degree \\(3\\) for \\(f(x)=\\cos(2x)\\) at \\(x=0\\). Use it to approximate \\(\\cos(\\frac{1}{5})\\).",
+            "求 \\(f(x)=\\cos(2x)\\) 在 \\(x=0\\) 处到三阶的泰勒多项式，并用它近似计算 \\(\\cos(\\frac{1}{5})\\)。"
+          ],
+          "answer": [
+            "At zero the value is \\(1\\), the second derivative is \\(-4\\), and the odd derivatives through order \\(3\\) vanish. The polynomial is \\(1-2x^2\\). Substitute \\(x=\\frac{1}{10}\\) to obtain \\(\\cos(\\frac{1}{5})\\approx\\frac{49}{50}\\).",
+            "函数在 \\(0\\) 处取值 \\(1\\)，二阶导数为 \\(-4\\)，一阶与三阶导数均为零。多项式为 \\(1-2x^2\\)。代入 \\(x=\\frac{1}{10}\\)，得 \\(\\cos(\\frac{1}{5})\\approx\\frac{49}{50}\\)。"
           ]
         }
       ]

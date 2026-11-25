@@ -79,31 +79,15 @@ h1 { font-size: clamp(28px, 4.5vw, 36px); line-height: 1.18; font-weight: 550; }
 .plain-list { padding-inline-start: 18px; }
 .plain-list li + li { margin-top: 2px; }
 
-.schedule-search { margin-block: 9px 12px; }
-.schedule-search > summary { color: var(--link); cursor: pointer; font-size: 14px; width: fit-content; }
-.search-fields { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-block: 8px 12px; }
-.search-fields label { display: grid; gap: 3px; font-size: 13px; }
-.search-fields input, .search-fields select {
-  max-width: 100%;
-  min-height: 34px;
-  padding: 5px 7px;
-  border: 1px solid #a9b2bb;
-  border-radius: 3px;
-  background: #fff;
-  color: var(--ink);
-  font: inherit;
-}
-.search-status { margin: 0 0 8px; color: var(--muted); font-size: 14px; }
-
 .schedule { width: 100%; border-collapse: collapse; table-layout: fixed; line-height: 1.42; }
 .schedule th, .schedule td { padding: 9px 10px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
 .schedule thead th { font-size: 14px; font-weight: 650; border-block: 1px solid var(--rule); }
+.schedule .exercise-cell { width: 110px; text-align: center; white-space: nowrap; }
 .materials-cell { width: 98px; white-space: nowrap; }
 .material-row:nth-child(even) { background: var(--stripe); }
 .material-row > th { font-weight: 400; }
 .topic-cell { overflow-wrap: anywhere; }
 .topic-link { color: var(--ink); text-decoration-color: #8998a6; }
-.material-note { color: var(--muted); font-size: 13px; }
 .material-description { margin-top: 3px; color: var(--muted); font-size: 14px; white-space: pre-line; }
 
 .course-information { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; }
@@ -123,15 +107,37 @@ h1 { font-size: clamp(28px, 4.5vw, 36px); line-height: 1.18; font-weight: 550; }
 .plan-content p + p, .plan-content .document-list + p { margin-top: 7px; }
 .plan-resources { display: flex; flex-wrap: wrap; gap: 3px 13px; align-items: baseline; color: var(--muted); font-size: 14px; }
 
-.exercise-unit + .exercise-unit { padding-top: 16px; border-top: 1px solid var(--rule); }
-.exercise-index { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 8px; }
-.exercise-section { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.exercise-page { width: min(72rem, calc(100% - 48px)); }
+.exercise-layout.has-exercise-sidebar {
+  display: grid;
+  grid-template-columns: 13rem minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(16px, 3vw, 30px);
+}
+.exercise-sidebar {
+  position: sticky;
+  top: 16px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  padding: 0 12px 6px 4px;
+  border-inline-end: 1px solid var(--rule);
+  font-size: 14px;
+}
+.exercise-sidebar summary { padding: 3px 6px; font-weight: 650; cursor: pointer; }
+.exercise-sidebar ul { list-style: none; padding: 0; margin-top: 5px; }
+.exercise-sidebar a { display: block; padding: 4px 8px; border-inline-start: 2px solid transparent; }
+.exercise-sidebar a[aria-current="page"] { color: var(--ink); background: var(--stripe); border-inline-start-color: var(--link); font-weight: 650; }
 .exercise-list { padding-inline-start: 22px; margin-top: 8px; }
 .exercise-list > li + li { margin-top: 12px; }
 .katex-display { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-block: 2px; }
 .solution summary { width: fit-content; cursor: pointer; color: var(--link); font-size: 14px; }
 .solution p { margin-top: 4px; }
 .footer { margin-top: 32px; padding-block: 12px 26px; border-top: 1px solid var(--rule); font-size: 13px; text-align: end; }
+
+@media (max-width: 760px) {
+  .exercise-layout.has-exercise-sidebar { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .exercise-sidebar { position: static; max-height: none; padding: 0 0 8px; border-inline-end: 0; border-bottom: 1px solid var(--rule); }
+}
 
 @media (max-width: 600px) {
   .page { width: calc(100% - 32px); }
@@ -145,6 +151,7 @@ h1 { font-size: clamp(28px, 4.5vw, 36px); line-height: 1.18; font-weight: 550; }
   .staff { column-gap: 8px; }
   .schedule { font-size: 14px; }
   .schedule th, .schedule td { padding: 7px 6px; }
+  .schedule .exercise-cell { width: 83px; }
   .materials-cell { width: 75px; }
 }
 
