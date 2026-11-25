@@ -177,7 +177,6 @@ function renderMaterial(item) {
     : escapeText(title);
   return `<tr class="material-row" id="material-${item.id}">
     <th scope="row" class="topic-cell">${topic}${descriptionMarkup}</th>
-    <td class="exercise-cell">${exerciseLink(item, label("exercisesTitle"))}</td>
     <td class="materials-cell">${fileLink(item)}</td>
   </tr>`;
 }
@@ -319,7 +318,7 @@ function renderExercises() {
     const legacyGroup = /^#exercise-(chapter-(\d+)|[a-z]+)$/.exec(location.hash);
     const chapter = legacyGroup?.[2] ? Number(legacyGroup[2]) : firstExerciseChapter[legacyGroup?.[1]];
     const matchingTopics = topics.filter((entry) => !chapter || entry.chapter === chapter);
-    container.innerHTML = `<ul class="plain-list">${exerciseTopicLinks(matchingTopics, prefix)}</ul>`;
+    container.innerHTML = `<ul class="plain-list exercise-topic-list">${exerciseTopicLinks(matchingTopics, prefix)}</ul>`;
     return;
   }
 
