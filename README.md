@@ -6,7 +6,7 @@
 
 - `docs/syllabus.html` 列出课程目标、四个教学模块、教材章节和教学方法。
 - `docs/lesson-plans.html` 为 14 份课件各配一份教案。首页课件表的主题链接跳到对应教案，打开后可查看预习、课堂步骤、随堂检查和课后任务。
-- `docs/exercises.html` 独立呈现教材第 1、2、3、4、5、7、8、10 章的 36 道习题，每道题标有对应节号和可展开的参考解答。
+- 课件表的「习题」链接打开 `docs/exercises/` 中对应的主题页。页面左侧可切换主题，每道题附可展开的参考解答。修改共用模板 `docs/exercises.html` 后，运行 `node scripts/build-exercise-pages.mjs` 更新主题页。
 
 ## 管理后台
 
@@ -34,6 +34,17 @@
 
 - `docs/materials/` 收录 14 份现有课件副本，文件名采用 `YYMMDD_标题.扩展名`。日期取课件封面，例如 `261031_The-Derivative-of-Functions.pdf`。
 - `A Primer of Power Series` 是历史讲义，学习内容从第 3 页开始。
-- 教材条目链接到出版社和作者的教材资料页。 [Thomas’ Calculus 第 14 版](https://www.pearson.com/se/Nordics-Higher-Education/subject-catalogue/mathematics/hass-thomas-calculus-si-units-14e.html) · [Stewart Calculus 第 7 版](https://www.stewartcalculus.com/media/11_home.php)
+- 首页的「PDF」可下载教材原件，文件作为仓库的 Release 附件发布。 [教材 PDF](https://github.com/a-p-seminar/whuclass/releases/tag/textbooks)
 - 新课件可用同一命名规则放进 `docs/materials/` 并提交到 GitHub，再在相应板块的 Topic 填入课件文件名。`.pptx` 和 `.ppt` 会显示为下载项。
 - 后台输入公式时，行内公式使用 `\(...\)`，独立公式使用 `\[...\]`，极限和求和使用 `\lim\limits` 与 `\sum\limits`，分式使用 `\frac{分子}{分母}`。KaTeX 及其字体在 `docs/vendor/katex/`。
+
+## 习题参考资料
+
+独立题页中的部分题目参考下列开放教材和课程的练习，题面和解答以本站的中英文版本为准。
+
+- 函数、极限与连续性。 [OpenStax Calculus Volume 1 函数复习](https://openstax.org/books/calculus-volume-1/pages/1-review-exercises) · [极限法则](https://openstax.org/books/calculus-volume-1/pages/2-3-the-limit-laws) · [连续性](https://openstax.org/books/calculus-volume-1/pages/2-4-continuity)
+- 导数与应用。 [OpenStax 导数复习](https://openstax.org/books/calculus-volume-1/pages/3-review-exercises) · [最大值与最小值](https://openstax.org/books/calculus-volume-1/pages/4-3-maxima-and-minima) · [中值定理](https://openstax.org/books/calculus-volume-1/pages/4-4-the-mean-value-theorem) · [导数和图像](https://openstax.org/books/calculus-volume-1/pages/4-5-derivatives-and-the-shape-of-a-graph) · [最优化](https://openstax.org/books/calculus-volume-1/pages/4-7-applied-optimization-problems) · [洛必达法则](https://openstax.org/books/calculus-volume-1/pages/4-8-lhopitals-rule)
+- 积分。 [OpenStax 定积分复习](https://openstax.org/books/calculus-volume-1/pages/5-review-exercises) · [分部积分](https://openstax.org/books/calculus-volume-2/pages/3-1-integration-by-parts)
+- 数列、级数和幂级数。 [OpenStax 数列](https://openstax.org/books/calculus-volume-2/pages/5-1-sequences) · [数列与级数复习](https://openstax.org/books/calculus-volume-2/pages/5-review-exercises) · [幂级数](https://openstax.org/books/calculus-volume-2/pages/6-1-power-series-and-functions) · [泰勒与麦克劳林级数](https://openstax.org/books/calculus-volume-2/pages/6-3-taylor-and-maclaurin-series)
+- 组合计数与二项式定理。 [OpenStax Precalculus 2e 计数原理](https://openstax.org/books/precalculus-2e/pages/11-5-counting-principles) · [二项式定理](https://openstax.org/books/precalculus-2e/pages/11-6-binomial-theorem)
+- 差商、连续性、导数奇偶性和黎曼和的部分题目参考了 David Jerison 的 MIT 18.01SC 题集 1C-1、1D-3、1F-6 和 3B-5。 [Differentiation](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/resources/mit18_01sc_pset1prb/) · [Integration](https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/resources/mit18_01sc_pset3prb/)
