@@ -236,15 +236,15 @@ const courseContent = {
     "team": [
       {
         "name": [
-          "Lingmin Liao",
-          "廖灵敏"
+          "Jihua Ma",
+          "马际华"
         ],
         "role": "lead"
       },
       {
         "name": [
-          "Jihua Ma",
-          "马际华"
+          "Lingmin Liao",
+          "廖灵敏"
         ],
         "role": "member"
       },
