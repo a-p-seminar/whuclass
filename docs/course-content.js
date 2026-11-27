@@ -54,7 +54,7 @@ const courseContent = {
         ],
         "edition": [
           "Lecture notes with exercises and worked solutions.",
-          "马际华老师的高等数学讲义，含习题与详解。"
+          "高等数学讲义。"
         ],
         "url": "https://a-p-seminar.github.io/whuclass/materials/advanced_math_notes.pdf"
       }
