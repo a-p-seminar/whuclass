@@ -44,6 +44,19 @@ const courseContent = {
           "第 7 版，参考教材。"
         ],
         "url": "https://github.com/a-p-seminar/whuclass/releases/download/textbooks/Stewart-Calculus-7e.pdf"
+      },
+      {
+        "id": "ma-lecture-notes",
+        "authors": "Jihua Ma",
+        "title": [
+          "Advanced Mathematics",
+          "高等数学讲义"
+        ],
+        "edition": [
+          "Lecture notes with exercises and worked solutions.",
+          "马际华老师的高等数学讲义，含习题与详解。"
+        ],
+        "url": "https://a-p-seminar.github.io/whuclass/materials/advanced_math_notes.pdf"
       }
     ],
     "modules": [
